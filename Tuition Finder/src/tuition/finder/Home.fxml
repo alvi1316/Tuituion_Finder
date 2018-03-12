@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" minHeight="1080.0" minWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tuition.finder.HomeController">
+   <children>
+      <HBox prefHeight="63.0" prefWidth="1920.0" style="-fx-background-color: #8c151e;">
+         <children>
+            <Region prefHeight="53.0" prefWidth="82.0" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Tuition Finder" underline="true" wrappingWidth="219.41015625">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Text>
+            <Region prefHeight="53.0" prefWidth="165.0" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Search" wrappingWidth="71.5234375">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="6.0" />
+               </HBox.margin>
+            </Text>
+            <Region prefHeight="53.0" prefWidth="18.0" />
+            <TextField prefHeight="51.0" prefWidth="577.0" promptText="Search">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Region prefHeight="53.0" prefWidth="443.0" />
+            <Hyperlink text="Profile Name" textFill="WHITE">
+               <HBox.margin>
+                  <Insets top="9.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Hyperlink>
+            <Region prefHeight="53.0" prefWidth="24.0" />
+            <Hyperlink text="Home" textFill="WHITE">
+               <HBox.margin>
+                  <Insets top="9.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Hyperlink>
+            <Region prefHeight="53.0" prefWidth="28.0" />
+            <MenuButton mnemonicParsing="false" text="Menu">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Settings" />
+                <MenuItem mnemonicParsing="false" onAction="#logoutPressed" text="Logout" />
+              </items>
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
+            </MenuButton>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </HBox>
+      <ListView layoutY="68.0" prefHeight="1012.0" prefWidth="369.0" style="-fx-background-color: #8c151e;" />
+   </children>
+</AnchorPane>
