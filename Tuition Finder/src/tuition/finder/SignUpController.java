@@ -7,15 +7,47 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
 
 public class SignUpController implements Initializable {
 
     TuitionFinder tuitionfinder;
     @FXML
-    private MenuButton agebutton;
+    private TextField username;
+    @FXML
+    private TextField mobileNum;
+    @FXML
+    private TextField parentNum;
+    @FXML
+    private TextField address;
+    @FXML
+    private TextField institute;
+    @FXML
+    private TextField cgpa;
+    @FXML
+    private TextField ssccg;
+    @FXML
+    private TextField hsccg;
+    @FXML
+    private MenuButton age;
     @FXML
     private MenuButton sex;
+    @FXML
+    private TextField name;
+    @FXML
+    private TextField email;
+    @FXML
+    private TextField password;
+    @FXML
+    private TextArea description;
+    @FXML
+    private Text infotext;
+    @FXML
+    private Text usernametaken;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -32,17 +64,17 @@ public class SignUpController implements Initializable {
 
     @FXML
     private void ageOne(ActionEvent event) {
-        agebutton.setText("18-22");
+        age.setText("18-22");
     }
 
     @FXML
     private void ageTwo(ActionEvent event) {
-        agebutton.setText("23-27");
+        age.setText("23-27");
     }
 
     @FXML
     private void ageThree(ActionEvent event) {
-        agebutton.setText("28-35");
+        age.setText("28-35");
     }
 
     @FXML
@@ -57,7 +89,32 @@ public class SignUpController implements Initializable {
 
     @FXML
     private void finishPressed(ActionEvent event) throws IOException {
-        tuitionfinder.homePage();
+        
+        if(name.getText().equals("") || password.getText().equals("") || username.getText().equals("") || institute.getText().equals("")|| username.getText().equals("")){
+            infotext.setVisible(true);
+        }
+        else if(Database.checkUsername(username.getText())){
+            usernametaken.setVisible(true);
+        }
+        else{
+            try{
+                Integer.parseInt(mobileNum.getText());
+                Integer.parseInt(parentNum.getText());
+                Double.parseDouble(cgpa.getText());
+                Double.parseDouble(ssccg.getText());
+                Double.parseDouble(hsccg.getText());
+                Database.makeFolder(username.getText());
+                Database.makeDb(name.getText(),password.getText(),email.getText(),username.getText(),Integer.parseInt(mobileNum.getText()),Integer.parseInt(parentNum.getText()),age.getText(),sex.getText(),address.getText(),institute.getText(),Double.parseDouble(cgpa.getText()),Double.parseDouble(ssccg.getText()),Double.parseDouble(hsccg.getText()),description.getText());
+                Database.makeUsernamePassword(username.getText(), password.getText());
+                tuitionfinder.homePage();
+
+            }
+            catch(NumberFormatException e){
+                System.out.println(e);
+                infotext.setVisible(true);
+            }
+        }
+        
     }
     
     

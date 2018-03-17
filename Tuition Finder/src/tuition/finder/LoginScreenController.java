@@ -2,15 +2,27 @@ package tuition.finder;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
 
 public class LoginScreenController implements Initializable {
 
     private TuitionFinder tuitionFinder;
+    @FXML
+    private Label wrongpassword;
+    @FXML
+    private TextField username;
+    @FXML
+    private PasswordField password;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -27,13 +39,36 @@ public class LoginScreenController implements Initializable {
     }
 
     @FXML
-    private void showHome(ActionEvent event) throws IOException {
-        tuitionFinder.homePage();
+    private void forgotPasswordPressed(ActionEvent event) throws IOException {
+        
+        tuitionFinder.recoverScreen();
     }
 
     @FXML
-    private void forgotPasswordPressed(ActionEvent event) throws IOException {
-        tuitionFinder.recoverScreen();
+    private void loginButton(ActionEvent event) throws IOException {
+        try{
+            try {
+                
+                Boolean a = Database.checkUsernamePassword(username.getText(), password.getText());
+                if(a==true){
+                    tuitionFinder.homePage();
+                }
+                else{
+                    wrongpassword.setVisible(true);
+                }
+                
+                
+            } catch (SQLException ex) {
+                wrongpassword.setVisible(true);
+                System.out.println(ex);
+            }
+            
+        }
+        catch(IOException e){
+            wrongpassword.setVisible(true);
+            System.out.println(e);
+        }
+        
     }
     
 }

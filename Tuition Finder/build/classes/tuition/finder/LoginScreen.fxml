@@ -12,15 +12,15 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="900.0" style="-fx-background-color: #8c151e;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tuition.finder.LoginScreenController">
    <children>
-      <TextField layoutX="314.0" layoutY="282.0" prefHeight="48.0" prefWidth="278.0" promptText="USERNAME" AnchorPane.leftAnchor="314.0" />
-      <PasswordField layoutX="314.0" layoutY="365.0" prefHeight="48.0" prefWidth="278.0" promptText="PASSWORD" AnchorPane.leftAnchor="314.0" />
+      <TextField fx:id="username" layoutX="314.0" layoutY="282.0" prefHeight="48.0" prefWidth="278.0" promptText="USERNAME" AnchorPane.leftAnchor="314.0" />
+      <PasswordField fx:id="password" layoutX="314.0" layoutY="365.0" prefHeight="48.0" prefWidth="278.0" promptText="PASSWORD" AnchorPane.leftAnchor="314.0" />
       <Label layoutX="259.0" layoutY="42.0" prefHeight="73.0" prefWidth="382.0" text="TUTION FINDER!" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="48.0" />
          </font>
       </Label>
-      <Button layoutX="422.0" layoutY="440.0" mnemonicParsing="false" onAction="#showHome" text="Login" />
-      <Label layoutX="398.0" layoutY="517.0" prefHeight="21.0" prefWidth="112.0" text="Wrong Password" textAlignment="CENTER" textFill="#1077d0" />
+      <Button layoutX="422.0" layoutY="440.0" mnemonicParsing="false" onAction="#loginButton" text="Login" />
+      <Label fx:id="wrongpassword" layoutX="354.0" layoutY="517.0" prefHeight="21.0" prefWidth="200.0" text="Wrong username or password" textAlignment="CENTER" textFill="#1077d0" visible="false" />
       <Hyperlink layoutX="381.0" layoutY="488.0" onAction="#forgotPasswordPressed" text="Forgot My Password" textFill="WHITE" />
       <Separator layoutX="158.0" layoutY="115.0" prefHeight="4.0" prefWidth="589.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8c151e" height="48.0" layoutX="359.0" layoutY="203.0" stroke="WHITE" strokeType="INSIDE" width="189.0" />
