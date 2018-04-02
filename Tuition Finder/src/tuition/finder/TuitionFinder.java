@@ -49,13 +49,15 @@ public class TuitionFinder extends Application {
         stage.show();
     }
     
-    public void homePage() throws IOException{
+    public void homePage(String username) throws IOException{
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("Home.fxml"));
         Parent root = loader.load();
         
         HomeController controller = loader.getController();
+        controller.setUsernametext(username);
         controller.setTutionFinder(this);
+        
         
         stage.setTitle("Home");
         stage.setScene(new Scene(root));
@@ -81,7 +83,24 @@ public class TuitionFinder extends Application {
         stage.show();
     }
 
-
+    public void profileScreen(String name) throws IOException {
+        
+        
+        FXMLLoader loader=new FXMLLoader();
+        loader.setLocation(getClass().getResource("ProfileInformation.fxml"));
+        Parent root = loader.load();
+        
+        ProfileInformationController controller = loader.getController();
+        controller.setName(name);
+        controller.setEverything();
+        controller.setTuitionFinder(this);
+        
+        stage.setTitle("Profile");
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.show();
+    }
+    
     public static void main(String[] args) {
         launch(args);
     }

@@ -87,4 +87,31 @@ public class Database {
         }
         return s.equals(username);
     }
+    public static ProInfo getProfile(String username) throws SQLException{
+        
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:Users\\"+username+"\\"+username+".db");
+        Statement stmt = conn.createStatement();
+        String query = String.format("select * from profile order by '%s'",username);
+        ResultSet rs = stmt.executeQuery(query);
+        ProInfo p = new ProInfo();
+        
+        while (rs.next()) {
+            
+            p.setName(rs.getString("name"));
+            p.setPassword(rs.getString("password"));
+            p.setUserEmail(rs.getString("email"));
+            p.setUserName(rs.getString("username")); 
+            p.setUserPhone(rs.getInt("mobileNum"));
+            p.setParentNum(rs.getInt("ParentNum"));
+            p.setUserAge(rs.getString("age"));
+            p.setUserSex(rs.getString("sex"));
+            p.setAddress(rs.getString("address"));
+            p.setUserInstitute(rs.getString("institute"));
+            p.setUserCGPA(rs.getDouble("cgpa"));
+            p.setUserSscCg(rs.getDouble("ssccg"));
+            p.setUserHscCg(rs.getDouble("hsccg"));
+            p.setUserDescription(rs.getString("description"));
+        }
+        return p;
+    }
 }

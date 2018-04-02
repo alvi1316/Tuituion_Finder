@@ -51,7 +51,7 @@ public class LoginScreenController implements Initializable {
                 
                 Boolean a = Database.checkUsernamePassword(username.getText(), password.getText());
                 if(a==true){
-                    tuitionFinder.homePage();
+                    tuitionFinder.homePage(username.getText());
                 }
                 else{
                     wrongpassword.setVisible(true);

@@ -7,13 +7,20 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Hyperlink;
 
 public class HomeController implements Initializable {
 
     TuitionFinder tuitionFinder;
+    @FXML
+    private Hyperlink usernametext;
+
+    public void setUsernametext(String usernametext) {
+        this.usernametext.setText(usernametext);
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        //Todo
     }    
 
     public void setTutionFinder(TuitionFinder tuitionFinder) {
@@ -23,6 +30,13 @@ public class HomeController implements Initializable {
     @FXML
     private void logoutPressed(ActionEvent event) throws IOException {
         tuitionFinder.logInStage();
+    }
+
+    @FXML
+    private void userNamePressed(ActionEvent event) throws IOException {
+       
+        tuitionFinder.profileScreen(usernametext.getText());
+       
     }
     
 }
