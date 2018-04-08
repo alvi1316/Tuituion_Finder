@@ -25,6 +25,7 @@ public class TuitionFinder extends Application {
         LoginScreenController controller=loader.getController();
         controller.setTuitionFinder(this);
         
+        
         stage.setTitle("Tuition Finder");
         stage.setScene(new Scene(root));
         stage.centerOnScreen();
@@ -98,6 +99,33 @@ public class TuitionFinder extends Application {
         stage.setTitle("Profile");
         stage.setScene(new Scene(root));
         stage.setResizable(false);
+        stage.show();
+    }
+    
+    public void editProfileScreen(String name) throws IOException {
+        
+        
+        FXMLLoader loader=new FXMLLoader();
+        loader.setLocation(getClass().getResource("EditProfileInformation.fxml"));
+        Parent root = loader.load();
+        
+        EditProfileInformationController controller = loader.getController();
+        controller.setN(name);
+        controller.setTuitionFinder(this);
+        
+        stage.setTitle("Edit Profile");
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.show();
+    }
+    
+    public void alt(String username)throws IOException{
+        AlternateHomepage page  = new AlternateHomepage();
+        page.setTuitionfinder(this);
+        page.homepage(username);
+        stage.setTitle("Home!");
+        stage.setX(0);
+        stage.setY(0);
         stage.show();
     }
     

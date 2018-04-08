@@ -36,7 +36,7 @@
                </HBox.margin>
             </Text>
             <Region prefHeight="53.0" prefWidth="18.0" />
-            <TextField prefHeight="51.0" prefWidth="577.0" promptText="Search">
+            <TextField onKeyPressed="#searchEnterPressed" prefHeight="51.0" prefWidth="577.0" promptText="Search">
                <font>
                   <Font size="18.0" />
                </font>

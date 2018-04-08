@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #8c151e;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tuition.finder.ProfileInformationController">
+   <children>
+      <Text fill="WHITE" layoutX="282.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile" wrappingWidth="229.5703125">
+         <font>
+            <Font size="79.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="282.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name :">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="282.0" layoutY="488.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-Mail :">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="282.0" layoutY="588.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Institute :">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="282.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number :" wrappingWidth="192.51303100585938">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fx:id="name" fill="WHITE" layoutX="492.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="300.0">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fx:id="userEmail" fill="WHITE" layoutX="492.0" layoutY="488.0" strokeType="OUTSIDE" strokeWidth="0.0" text="deadhead1316@gmail.com" wrappingWidth="450.0">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fx:id="userInstitute" fill="WHITE" layoutX="492.0" layoutY="588.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NSU" wrappingWidth="300.0">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fx:id="userPhone" fill="WHITE" layoutX="492.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="01788494882" wrappingWidth="300.0">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="282.0" layoutY="688.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age :">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="282.0" layoutY="788.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sex :">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="282.0" layoutY="888.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current CGPA :">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="282.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name :">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fx:id="userName" fill="WHITE" layoutX="492.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shah Alvi Hosssain" wrappingWidth="300.0">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fx:id="userAge" fill="WHITE" layoutX="492.0" layoutY="688.0" strokeType="OUTSIDE" strokeWidth="0.0" text="18-22" wrappingWidth="300.0">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fx:id="userSex" fill="WHITE" layoutX="492.0" layoutY="788.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Male" wrappingWidth="300.0">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fx:id="userCGPA" fill="WHITE" layoutX="492.0" layoutY="888.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3.28" wrappingWidth="300.0">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="282.0" layoutY="988.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSC GPA :">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fx:id="userSscCg" fill="WHITE" layoutX="492.0" layoutY="988.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4.69" wrappingWidth="300.0">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="1004.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HSC GPA :">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fx:id="userHscCg" fill="WHITE" layoutX="1214.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4.14" wrappingWidth="300.0">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="1004.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="userDescription" editable="false" layoutX="1004.0" layoutY="320.0" prefHeight="464.0" prefWidth="676.0" text="I PLAY UNO!" wrapText="true" />
+      <Button layoutX="1277.0" layoutY="862.0" mnemonicParsing="false" onAction="#homePressed" prefHeight="50.0" prefWidth="100.0" text="Home">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Button>
+      <Button layoutX="1589.0" layoutY="862.0" mnemonicParsing="false" onAction="#editButtonPressed" prefHeight="50.0" prefWidth="100.0" text="Edit">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

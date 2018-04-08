@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,12 +18,16 @@ public class LoginScreenController implements Initializable {
     @FXML
     private Label wrongpassword;
     @FXML
+    private Label mainLabel;
+    @FXML
     private TextField username;
     @FXML
     private PasswordField password;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+                mainLabel.requestFocus();
+
     }    
 
     @FXML
@@ -36,6 +38,7 @@ public class LoginScreenController implements Initializable {
 
     void setTuitionFinder(TuitionFinder tuitionFinder) {
         this.tuitionFinder = tuitionFinder;
+        
     }
 
     @FXML
@@ -51,7 +54,7 @@ public class LoginScreenController implements Initializable {
                 
                 Boolean a = Database.checkUsernamePassword(username.getText(), password.getText());
                 if(a==true){
-                    tuitionFinder.homePage(username.getText());
+                    tuitionFinder.alt(username.getText());
                 }
                 else{
                     wrongpassword.setVisible(true);

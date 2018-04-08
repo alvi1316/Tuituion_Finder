@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package tuition.finder;
 
 import java.io.IOException;
@@ -23,6 +19,7 @@ import javafx.scene.text.Text;
  * @author User
  */
 public class ProfileInformationController implements Initializable {
+
 
     public ProfileInformationController() {
     }
@@ -94,9 +91,12 @@ public class ProfileInformationController implements Initializable {
 
     @FXML
     private void homePressed(ActionEvent event) throws IOException {
-        tuitionFinder.homePage(name.getText());
+        tuitionFinder.alt(userName.getText());
     }
-    
-    
+
+    @FXML
+    private void editButtonPressed(ActionEvent event) throws IOException {
+        tuitionFinder.editProfileScreen(name.getText());
+    }
     
 }
