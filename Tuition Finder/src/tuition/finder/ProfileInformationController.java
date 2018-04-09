@@ -91,7 +91,7 @@ public class ProfileInformationController implements Initializable {
 
     @FXML
     private void homePressed(ActionEvent event) throws IOException {
-        tuitionFinder.alt(userName.getText());
+        tuitionFinder.homePage(userName.getText());
     }
 
     @FXML

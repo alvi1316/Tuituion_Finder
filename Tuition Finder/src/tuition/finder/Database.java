@@ -110,4 +110,25 @@ public class Database {
         p.setUserDescription(rs.getString("description"));
         return p;
     }
+    public static void writePost(String username,PostInfo p) throws SQLException{
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:Users\\"+username+"\\"+username+".db");
+        String sql = "CREATE TABLE IF NOT EXISTS post " + "(" 
+                    + "area string,"
+                    + "time string,"
+                    + "salary string,"
+                    + "subtext string,"
+                    + "ins string,"
+                    + "class string,"
+                    + "prefins string,"
+                    + "posttime string,"
+                    + "postdate string" 
+                    + ");";
+        Statement stmt = conn.createStatement();
+        stmt.execute(sql);
+        String insertQuery = String.format("INSERT INTO post(area,time,salary,subtext,ins,class,prefins,posttime,postdate) VALUES ('%s','%s','%s','%s','%s','%s','%s','%s','%s')",p.getArea(),p.getTime(),p.getSalary(),p.getSubtext(),p.getIns(),p.getStuclass(),p.getPrefins(),p.getPosttime(),p.getPostdate());
+        stmt.executeUpdate(insertQuery);
+    }
+    
+    
+    
 }

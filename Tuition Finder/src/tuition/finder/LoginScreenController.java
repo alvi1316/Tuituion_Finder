@@ -25,9 +25,7 @@ public class LoginScreenController implements Initializable {
     private PasswordField password;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-                mainLabel.requestFocus();
-
+        mainLabel.requestFocus();
     }    
 
     @FXML
@@ -54,7 +52,7 @@ public class LoginScreenController implements Initializable {
                 
                 Boolean a = Database.checkUsernamePassword(username.getText(), password.getText());
                 if(a==true){
-                    tuitionFinder.alt(username.getText());
+                    tuitionFinder.homePage(username.getText());
                 }
                 else{
                     wrongpassword.setVisible(true);
