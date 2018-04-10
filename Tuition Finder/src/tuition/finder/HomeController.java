@@ -131,8 +131,8 @@ public class HomeController implements Initializable {
     
     
     
-    public void setUsernametext(String usernametext) {
-        this.usernametext.setText(usernametext);
+    public void setUsernametext() {
+        usernametext.setText(TuitionFinder.username);
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -167,8 +167,7 @@ public class HomeController implements Initializable {
     @FXML
     private void userNamePressed(ActionEvent event) throws IOException {
         
-        
-        tuitionFinder.selfStatusScreen(usernametext.getText());
+        tuitionFinder.selfStatusScreen();
        
     }
 

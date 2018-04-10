@@ -54,7 +54,7 @@
                </font>
             </Hyperlink>
             <Region prefHeight="53.0" prefWidth="24.0" />
-            <Hyperlink text="Home" textFill="WHITE">
+            <Hyperlink onAction="#hemePressed" text="Home" textFill="WHITE">
                <HBox.margin>
                   <Insets top="9.0" />
                </HBox.margin>

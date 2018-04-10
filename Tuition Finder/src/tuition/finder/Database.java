@@ -131,9 +131,9 @@ public class Database {
         stmt.executeUpdate(insertQuery);
     }
     
-    public static List<PostInfo> getPostInfo(String username) throws SQLException {
+    public static List<PostInfo> getPostInfo() throws SQLException {
 		List<PostInfo> postinfo = new ArrayList<>();
-		Connection conn = DriverManager.getConnection("jdbc:sqlite:Users\\"+username+"\\"+username+".db");
+		Connection conn = DriverManager.getConnection("jdbc:sqlite:Users\\"+TuitionFinder.username+"\\"+TuitionFinder.username+".db");
 		try {
 			String query = "select * from post order by posttime";
                         Statement stmt = conn.createStatement();
@@ -155,7 +155,6 @@ public class Database {
 		} catch (Exception e) {
 			System.out.println("Exception in listProducts: " + e);
 		} finally {
-                        System.out.println("Success Full!");
 			conn.close();
 		}
 		return postinfo;

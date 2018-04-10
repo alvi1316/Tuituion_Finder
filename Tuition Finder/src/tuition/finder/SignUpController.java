@@ -106,7 +106,8 @@ public class SignUpController implements Initializable {
                 Database.makeFolder(username.getText());
                 Database.makeDb(name.getText(),password.getText(),email.getText(),username.getText(),Integer.parseInt(mobileNum.getText()),Integer.parseInt(parentNum.getText()),age.getText(),sex.getText(),address.getText(),institute.getText(),Double.parseDouble(cgpa.getText()),Double.parseDouble(ssccg.getText()),Double.parseDouble(hsccg.getText()),description.getText());
                 Database.makeUsernamePassword(username.getText(), password.getText());
-                tuitionfinder.homePage(username.getText());
+                TuitionFinder.username = username.getText();
+                tuitionfinder.homePage();
 
             }
             catch(NumberFormatException e){

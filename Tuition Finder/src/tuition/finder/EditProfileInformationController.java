@@ -62,7 +62,7 @@ public class EditProfileInformationController implements Initializable {
 
     @FXML
     private void homePressed(ActionEvent event) throws IOException {
-        tuitionFinder.homePage(n);
+        tuitionFinder.homePage();
     }
     
 }

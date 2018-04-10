@@ -11,6 +11,8 @@ import javafx.scene.Parent;
 
 public class TuitionFinder extends Application {
     Stage stage;
+    static String username;
+
     
     
     
@@ -55,16 +57,15 @@ public class TuitionFinder extends Application {
         stage.show();
     }
     
-    public void homePage(String username) throws IOException{
+    public void homePage() throws IOException{
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("Home.fxml"));
         Parent root = loader.load();
         
         
         HomeController controller = loader.getController();
-        controller.setUsernametext(username);
+        controller.setUsernametext();
         controller.setTutionFinder(this);
-        
         stage.setMaximized(true);
         stage.setTitle("Home");
         stage.setScene(new Scene(root));
@@ -127,7 +128,9 @@ public class TuitionFinder extends Application {
         stage.show();
     }
     
-    public void selfStatusScreen(String name) throws IOException {
+    public void selfStatusScreen() throws IOException {
+        
+        
         
         
         FXMLLoader loader=new FXMLLoader();
@@ -135,12 +138,10 @@ public class TuitionFinder extends Application {
         Parent root = loader.load();
         
         
-        
         SelfStatusPageController controller = loader.getController();
-        controller.setUsernametext(name);
         controller.setTutionFinder(this);
         
-        stage.setTitle(name);
+        stage.setTitle(username);
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.show();

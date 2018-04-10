@@ -130,51 +130,58 @@ public class SelfStatusPageController implements Initializable {
     private Button loadmore;
     @FXML
     private Label errorlbl;
-    @FXML
     private AnchorPane temppane;
     
-    
-    public void setUsernametext(String usernametext) {
-        this.usernametext.setText(usernametext);
+    TuitionFinder tuitionfinder;
+
+    public void setTuitionfinder(TuitionFinder tuitionfinder) {
+        this.tuitionfinder = tuitionfinder;
     }
+    
+   
+    
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb){
-        
-        for(int i=0;i<5;i++){
-            FXMLLoader loader=new FXMLLoader();
-            loader.setLocation(getClass().getResource("PostComp.fxml"));
         try {
-            Parent root = loader.load();
-            PostCompController cc = loader.getController();
-            
-            
-        } catch (IOException ex) {
+            int y = 0;
+            int count=0;
+            List<PostInfo> postinfo = Database.getPostInfo();
+            for (PostInfo p : postinfo) {
+                if(count==5){
+                    break;
+                }
+                FXMLLoader loader=new FXMLLoader();
+                loader.setLocation(getClass().getResource("PostComp.fxml"));
+                try {
+                    temppane = loader.load();
+                    temppane.setLayoutX(0);
+                    temppane.setLayoutY(210+y);
+                    PostCompController con = loader.getController();
+                    con.setAreatext(p.getArea());
+                    con.setClasstext(p.getStuclass());
+                    con.setInstitutetext(p.getIns());
+                    con.setPostdatetext(p.getPostdate());
+                    con.setPosttimetext(p.getPosttime());
+                    con.setPrefinstext(p.getPrefins());
+                    con.setSalarytext(p.getSalary());
+                    con.setSubjectext(p.getSubtext());
+                    con.setTimetext(p.getTime());
+                    scrollpane.getChildren().add(temppane);
+                    y=y+144;
+                    count++;
+                } catch (IOException ex) {
+                    Logger.getLogger(SelfStatusPageController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }  
+        } catch (SQLException ex) {
             Logger.getLogger(SelfStatusPageController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        }
-        
-        
-        
-        
 
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+            
+            
+            
         FileInputStream input = null;
         try {
             input = new FileInputStream("Icons/favicon.jpg");
@@ -189,7 +196,11 @@ public class SelfStatusPageController implements Initializable {
                 Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-
+        
+        
+        
+        usernametext.setText(tuitionfinder.username);
+        
     }    
 
     public void setTutionFinder(TuitionFinder tuitionFinder) {
@@ -204,7 +215,6 @@ public class SelfStatusPageController implements Initializable {
     @FXML
     private void userNamePressed(ActionEvent event) throws IOException {
        
-        tuitionFinder.profileScreen(usernametext.getText());
        
     }
 
@@ -480,6 +490,11 @@ public class SelfStatusPageController implements Initializable {
     private void loadmorePressed(ActionEvent event) {
         scrollpane.setMinHeight(scrollpane.getHeight()+1011);
         loadmore.setLayoutY(scrollpane.getMinHeight()-50);
+    }
+
+    @FXML
+    private void hemePressed(ActionEvent event) throws IOException {
+        tuitionfinder.homePage();
     }
 
     
