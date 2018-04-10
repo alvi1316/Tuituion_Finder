@@ -6,6 +6,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -120,8 +122,8 @@ public class Database {
                     + "ins string,"
                     + "class string,"
                     + "prefins string,"
-                    + "posttime string,"
-                    + "postdate string" 
+                    + "posttime time,"
+                    + "postdate date" 
                     + ");";
         Statement stmt = conn.createStatement();
         stmt.execute(sql);
@@ -129,6 +131,35 @@ public class Database {
         stmt.executeUpdate(insertQuery);
     }
     
-    
+    public static List<PostInfo> getPostInfo(String username) throws SQLException {
+		List<PostInfo> postinfo = new ArrayList<>();
+		Connection conn = DriverManager.getConnection("jdbc:sqlite:Users\\"+username+"\\"+username+".db");
+		try {
+			String query = "select * from post order by posttime";
+                        Statement stmt = conn.createStatement();
+                        ResultSet rs = stmt.executeQuery(query);
+			
+			while (rs.next()) {
+				PostInfo p = new PostInfo();
+				p.setArea(rs.getString("area"));
+                                p.setTime(rs.getString("time"));
+                                p.setSalary(rs.getString("salary"));
+                                p.setSubtext(rs.getString("subtext"));
+                                p.setIns(rs.getString("ins"));
+                                p.setStuclass(rs.getString("class"));
+                                p.setPrefins(rs.getString("prefins"));
+                                p.setPosttime(rs.getString("posttime"));
+                                p.setPostdate(rs.getString("postdate"));
+				postinfo.add(p);
+			}
+		} catch (Exception e) {
+			System.out.println("Exception in listProducts: " + e);
+		} finally {
+                        System.out.println("Success Full!");
+			conn.close();
+		}
+		return postinfo;
+	}
+  
     
 }

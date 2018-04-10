@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" minHeight="1080.0" minWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tuition.finder.SelfStatusPageController">
+   <children>
+      <HBox prefHeight="63.0" prefWidth="1920.0" style="-fx-background-color: #8c151e;">
+         <children>
+            <Region prefHeight="53.0" prefWidth="82.0" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Tuition Finder" underline="true" wrappingWidth="219.41015625">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Text>
+            <Region prefHeight="53.0" prefWidth="165.0" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Search" wrappingWidth="71.5234375">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="6.0" />
+               </HBox.margin>
+            </Text>
+            <Region prefHeight="53.0" prefWidth="18.0" />
+            <TextField onKeyPressed="#searchEnterPressed" prefHeight="51.0" prefWidth="577.0" promptText="Search">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Region prefHeight="53.0" prefWidth="14.0" />
+            <Button fx:id="search" mnemonicParsing="false" prefHeight="50.0" prefWidth="55.0" />
+            <Region prefHeight="53.0" prefWidth="275.0" />
+            <Hyperlink fx:id="usernametext" onAction="#userNamePressed" prefHeight="35.0" prefWidth="221.0" text="UsernameText" textFill="WHITE" textOverrun="CLIP">
+               <HBox.margin>
+                  <Insets top="9.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Hyperlink>
+            <Region prefHeight="53.0" prefWidth="24.0" />
+            <Hyperlink text="Home" textFill="WHITE">
+               <HBox.margin>
+                  <Insets top="9.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Hyperlink>
+            <Region prefHeight="53.0" prefWidth="28.0" />
+            <MenuButton mnemonicParsing="false" text="Menu">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Settings" />
+                <MenuItem mnemonicParsing="false" onAction="#logoutPressed" text="Logout" />
+              </items>
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
+            </MenuButton>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </HBox>
+      <ScrollPane layoutY="65.0" prefHeight="1014.0" prefWidth="1528.0">
+         <content>
+            <AnchorPane fx:id="scrollpane" prefHeight="1011.0" prefWidth="1525.0" style="-fx-background-color: White;">
+               <children>
+                  <AnchorPane prefHeight="205.0" prefWidth="1525.0" style="-fx-background-color: #8c151e;">
+                     <children>
+                        <MenuButton fx:id="subject" layoutX="1008.0" layoutY="35.0" mnemonicParsing="false" text="Subjects">
+                           <items>
+                              <CheckMenuItem fx:id="bangla1" mnemonicParsing="false" onAction="#bangla1Pressed" text="Bangla-1st" />
+                              <CheckMenuItem fx:id="bangla2" mnemonicParsing="false" onAction="#bangla2Pressed" text="Bangla-2nd" />
+                              <CheckMenuItem fx:id="english1" mnemonicParsing="false" onAction="#english1Pressed" text="English-1st" />
+                              <CheckMenuItem fx:id="english2" mnemonicParsing="false" onAction="#english2Pressed" text="English-2nd" />
+                              <CheckMenuItem fx:id="math" mnemonicParsing="false" onAction="#mathPressed" text="Math" />
+                              <CheckMenuItem fx:id="phy" mnemonicParsing="false" onAction="#phyPressed" text="Physics" />
+                              <CheckMenuItem fx:id="chem" mnemonicParsing="false" onAction="#chemPressed" text="Chemistry" />
+                              <CheckMenuItem fx:id="bio" mnemonicParsing="false" onAction="#boiPressed" text="Biology" />
+                              <CheckMenuItem fx:id="ict" mnemonicParsing="false" onAction="#ictPressed" text="ICT" />
+                           </items>
+                        </MenuButton>
+                        <MenuButton fx:id="area" layoutX="351.0" layoutY="34.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="135.0" text="Area">
+                          <items>
+                            <MenuItem fx:id="area1" mnemonicParsing="false" onAction="#area1Pressed" text="Uttara" />
+                            <MenuItem fx:id="area2" mnemonicParsing="false" onAction="#area2Pressed" text="Bosundara" />
+                              <MenuItem fx:id="area3" mnemonicParsing="false" onAction="#area3Pressed" text="Bonani" />
+                              <MenuItem fx:id="area4" mnemonicParsing="false" onAction="#area4Pressed" text="Gulshan" />
+                              <MenuItem fx:id="area5" mnemonicParsing="false" onAction="#area5Pressed" text="Mirpur" />
+                              <MenuItem fx:id="area6" mnemonicParsing="false" onAction="#area6Pressed" text="Basabo" />
+                          </items>
+                        </MenuButton>
+                        <MenuButton fx:id="time" layoutX="571.0" layoutY="34.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="135.0" text="Time">
+                          <items>
+                            <MenuItem fx:id="time1" mnemonicParsing="false" onAction="#time1Pressed" text="Morning" />
+                            <MenuItem fx:id="time2" mnemonicParsing="false" onAction="#time2Pressed" text="Afternoon" />
+                              <MenuItem fx:id="time3" mnemonicParsing="false" onAction="#time3Pressed" text="Night" />
+                          </items>
+                        </MenuButton>
+                        <MenuButton fx:id="stuclass" layoutX="571.0" layoutY="114.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="135.0" text="Class">
+                          <items>
+                            <MenuItem fx:id="class1" mnemonicParsing="false" onAction="#class1Pressed" text="Class 5" />
+                            <MenuItem fx:id="class2" mnemonicParsing="false" onAction="#class2Pressed" text="Class 6" />
+                              <MenuItem fx:id="class3" mnemonicParsing="false" onAction="#class3Pressed" text="Class 7" />
+                              <MenuItem fx:id="class4" mnemonicParsing="false" onAction="#class4Pressed" text="Class 8" />
+                              <MenuItem fx:id="class5" mnemonicParsing="false" onAction="#class5Pressed" text="Class 9" />
+                              <MenuItem fx:id="class6" mnemonicParsing="false" onAction="#class6Pressed" text="Class 10" />
+                              <MenuItem fx:id="class7" mnemonicParsing="false" onAction="#class7Pressed" text="Inter 1st" />
+                              <MenuItem fx:id="class8" mnemonicParsing="false" onAction="#class8Pressed" text="Inter 2nd" />
+                          </items>
+                        </MenuButton>
+                        <MenuButton fx:id="salary" layoutX="801.0" layoutY="35.0" mnemonicParsing="false" text="Salary">
+                          <items>
+                            <MenuItem fx:id="salary1" mnemonicParsing="false" onAction="#salary1Pressed" text="1000 + Taka" />
+                            <MenuItem fx:id="salary2" mnemonicParsing="false" onAction="#salary2Pressed" text="3000 + Taka" />
+                              <MenuItem fx:id="salary3" mnemonicParsing="false" onAction="#salary3Pressed" text="5000 + Taka" />
+                              <MenuItem fx:id="salary4" mnemonicParsing="false" onAction="#salary4Pressed" text="7000 + Taka" />
+                              <MenuItem fx:id="salary5" mnemonicParsing="false" onAction="#salary5Pressed" text="10,000 + Taka" />
+                          </items>
+                        </MenuButton>
+                        <MenuButton fx:id="ins" layoutX="351.0" layoutY="114.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="31.0" prefWidth="135.0" text="Institute">
+                          <items>
+                            <MenuItem fx:id="ins1" mnemonicParsing="false" onAction="#ins1Pressed" text="Uttara Rajuk School and College" />
+                            <MenuItem fx:id="ins2" mnemonicParsing="false" onAction="#ins2Pressed" text="Uttara High School and College" />
+                          </items>
+                        </MenuButton>
+                        <MenuButton fx:id="prefins" layoutX="801.0" layoutY="114.0" mnemonicParsing="false" text="Prefered Institute">
+                          <items>
+                            <MenuItem fx:id="prefins1" mnemonicParsing="false" onAction="#prefins1Pressed" text="NSU" />
+                            <MenuItem fx:id="prefins2" mnemonicParsing="false" onAction="#prefins2Pressed" text="Buet" />
+                          </items>
+                        </MenuButton>
+                        <TextArea fx:id="subtext" editable="false" layoutX="1121.0" layoutY="35.0" prefHeight="143.0" prefWidth="138.0" promptText="Selected Subjects" wrapText="true" />
+                        <Button layoutX="1340.0" layoutY="44.0" mnemonicParsing="false" onAction="#postPressed" prefHeight="91.0" prefWidth="116.0" text="POST!">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Button>
+                        <Separator layoutX="324.0" layoutY="16.0" orientation="VERTICAL" prefHeight="175.0" prefWidth="21.0" />
+                        <Separator layoutX="333.0" layoutY="7.0" prefHeight="20.0" prefWidth="964.0" />
+                        <Separator layoutX="333.0" layoutY="186.0" prefHeight="8.0" prefWidth="961.0" />
+                        <Separator layoutX="1290.0" layoutY="16.0" orientation="VERTICAL" prefHeight="175.0" prefWidth="14.0" />
+                        <Label layoutX="40.0" prefHeight="205.0" prefWidth="212.0" style="-fx-background-color: #8c151e;" text="Post Status Here! :" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="42.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="errorlbl" layoutX="1323.0" layoutY="147.0" prefHeight="46.0" prefWidth="164.0" text="Fill out all the information properly!" textFill="#00ff3a" visible="false" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+                  <Button fx:id="loadmore" layoutY="940.0" mnemonicParsing="false" onAction="#loadmorePressed" prefWidth="1525.0" text="Load More!" />
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+      <Label layoutX="1530.0" layoutY="65.0" prefHeight="36.0" prefWidth="388.0" style="-fx-background-color: #8c151e;" text="                       People that you are following " textAlignment="CENTER" textFill="WHITE" />
+   </children>
+</AnchorPane>

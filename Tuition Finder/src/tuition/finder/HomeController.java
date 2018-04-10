@@ -137,6 +137,7 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
+        
         FileInputStream input = null;
         try {
             input = new FileInputStream("Icons/favicon.jpg");
@@ -165,8 +166,9 @@ public class HomeController implements Initializable {
 
     @FXML
     private void userNamePressed(ActionEvent event) throws IOException {
-       
-        tuitionFinder.profileScreen(usernametext.getText());
+        
+        
+        tuitionFinder.selfStatusScreen(usernametext.getText());
        
     }
 
@@ -212,99 +214,99 @@ public class HomeController implements Initializable {
     @FXML
     private void bangla1Pressed(ActionEvent event) {
         if(!subtext.getText().contains(bangla1.getText())){
-                subtext.setText(subtext.getText()+bangla1.getText()+" "+"\n");
+                subtext.setText(subtext.getText()+bangla1.getText()+" ");
             }
             else if(subtext.getText().contains(bangla1.getText())){
                 
-                subtext.setText(subtext.getText().replace(bangla1.getText()+" "+"\n",""));
+                subtext.setText(subtext.getText().replace(bangla1.getText()+" ",""));
             }
     }
 
     @FXML
     private void bangla2Pressed(ActionEvent event) {
         if(!subtext.getText().contains(bangla2.getText())){
-                subtext.setText(subtext.getText()+bangla2.getText()+" "+"\n");
+                subtext.setText(subtext.getText()+bangla2.getText()+" ");
             }
             else if(subtext.getText().contains(bangla2.getText())){
                 
-                subtext.setText(subtext.getText().replace(bangla2.getText()+" "+"\n",""));
+                subtext.setText(subtext.getText().replace(bangla2.getText()+" ",""));
             }
     }
 
     @FXML
     private void english1Pressed(ActionEvent event) {
         if(!subtext.getText().contains(english1.getText())){
-                subtext.setText(subtext.getText()+english1.getText()+" "+"\n");
+                subtext.setText(subtext.getText()+english1.getText()+" ");
             }
             else if(subtext.getText().contains(english1.getText())){
                 
-                subtext.setText(subtext.getText().replace(english1.getText()+" "+"\n",""));
+                subtext.setText(subtext.getText().replace(english1.getText()+" ",""));
             }
     }
 
     @FXML
     private void english2Pressed(ActionEvent event) {
         if(!subtext.getText().contains(english2.getText())){
-                subtext.setText(subtext.getText()+english2.getText()+" "+"\n");
+                subtext.setText(subtext.getText()+english2.getText()+" ");
             }
             else if(subtext.getText().contains(english2.getText())){
                 
-                subtext.setText(subtext.getText().replace(english2.getText()+" "+"\n",""));
+                subtext.setText(subtext.getText().replace(english2.getText()+" ",""));
             }
     }
 
     @FXML
     private void phyPressed(ActionEvent event) {
         if(!subtext.getText().contains(phy.getText())){
-                subtext.setText(subtext.getText()+phy.getText()+" "+"\n");
+                subtext.setText(subtext.getText()+phy.getText()+" ");
             }
             else if(subtext.getText().contains(phy.getText())){
                 
-                subtext.setText(subtext.getText().replace(phy.getText()+" "+"\n",""));
+                subtext.setText(subtext.getText().replace(phy.getText()+" ",""));
             }
     }
 
     @FXML
     private void chemPressed(ActionEvent event) {
         if(!subtext.getText().contains(chem.getText())){
-                subtext.setText(subtext.getText()+chem.getText()+" "+"\n");
+                subtext.setText(subtext.getText()+chem.getText()+" ");
             }
             else if(subtext.getText().contains(chem.getText())){
                 
-                subtext.setText(subtext.getText().replace(chem.getText()+" "+"\n",""));
+                subtext.setText(subtext.getText().replace(chem.getText()+" ",""));
             }
     }
 
     @FXML
     private void boiPressed(ActionEvent event) {
         if(!subtext.getText().contains(bio.getText())){
-                subtext.setText(subtext.getText()+bio.getText()+" "+"\n");
+                subtext.setText(subtext.getText()+bio.getText()+" ");
             }
             else if(subtext.getText().contains(bio.getText())){
                 
-                subtext.setText(subtext.getText().replace(bio.getText()+" "+"\n",""));
+                subtext.setText(subtext.getText().replace(bio.getText()+" ",""));
             }
     }
 
     @FXML
     private void ictPressed(ActionEvent event) {
         if(!subtext.getText().contains(ict.getText())){
-                subtext.setText(subtext.getText()+ict.getText()+" "+"\n");
+                subtext.setText(subtext.getText()+ict.getText()+" ");
             }
             else if(subtext.getText().contains(ict.getText())){
                 
-                subtext.setText(subtext.getText().replace(ict.getText()+" "+"\n",""));
+                subtext.setText(subtext.getText().replace(ict.getText()+" ",""));
             }
     }
 
     @FXML
     private void mathPressed(ActionEvent event) {
         if(!subtext.getText().contains(math.getText())){
-                subtext.setText(subtext.getText()+math.getText()+" "+"\n");
+                subtext.setText(subtext.getText()+math.getText()+" ");
             }
             else if(subtext.getText().contains(math.getText())){
                 
-                subtext.setText(subtext.getText().replace(math.getText()+" "+"\n",""));
+                subtext.setText(subtext.getText().replace(math.getText()+" ",""));
             }
     }
 

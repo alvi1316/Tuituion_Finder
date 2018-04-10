@@ -90,7 +90,7 @@
                               <CheckMenuItem fx:id="english1" mnemonicParsing="false" onAction="#english1Pressed" text="English-1st" />
                               <CheckMenuItem fx:id="english2" mnemonicParsing="false" onAction="#english2Pressed" text="English-2nd" />
                               <CheckMenuItem fx:id="math" mnemonicParsing="false" onAction="#mathPressed" text="Math" />
-                              <CheckMenuItem fx:id="phy" mnemonicParsing="false" onAction="#phyPressed" text="Physich" />
+                              <CheckMenuItem fx:id="phy" mnemonicParsing="false" onAction="#phyPressed" text="Physics" />
                               <CheckMenuItem fx:id="chem" mnemonicParsing="false" onAction="#chemPressed" text="Chemistry" />
                               <CheckMenuItem fx:id="bio" mnemonicParsing="false" onAction="#boiPressed" text="Biology" />
                               <CheckMenuItem fx:id="ict" mnemonicParsing="false" onAction="#ictPressed" text="ICT" />

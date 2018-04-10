@@ -6,11 +6,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.Parent;
+
 
 public class TuitionFinder extends Application {
     Stage stage;
-    AnchorPane root;
+    
     
     
     
@@ -24,7 +25,7 @@ public class TuitionFinder extends Application {
     public void logInStage() throws IOException {
         FXMLLoader loader=new FXMLLoader();
         loader.setLocation(getClass().getResource("LoginScreen.fxml"));
-        root = loader.load();
+        Parent root = loader.load();
         
         LoginScreenController controller=loader.getController();
         controller.setTuitionFinder(this);
@@ -43,7 +44,7 @@ public class TuitionFinder extends Application {
         
         FXMLLoader loader=new FXMLLoader();
         loader.setLocation(getClass().getResource("SignUp.fxml"));
-        root = loader.load();
+        Parent root = loader.load();
         
         SignUpController controller = loader.getController();
         controller.setTuitionfinder(this);
@@ -57,7 +58,7 @@ public class TuitionFinder extends Application {
     public void homePage(String username) throws IOException{
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("Home.fxml"));
-        root = loader.load();
+        Parent root = loader.load();
         
         
         HomeController controller = loader.getController();
@@ -78,7 +79,7 @@ public class TuitionFinder extends Application {
         
         FXMLLoader loader=new FXMLLoader();
         loader.setLocation(getClass().getResource("ForgotPassword.fxml"));
-        root = loader.load();
+        Parent root = loader.load();
         
         ForgotPasswordController controller = loader.getController();
         controller.setTuitionFinder(this);
@@ -94,7 +95,7 @@ public class TuitionFinder extends Application {
         
         FXMLLoader loader=new FXMLLoader();
         loader.setLocation(getClass().getResource("ProfileInformation.fxml"));
-        root = loader.load();
+        Parent root = loader.load();
         
         ProfileInformationController controller = loader.getController();
         controller.setName(name);
@@ -112,7 +113,7 @@ public class TuitionFinder extends Application {
         
         FXMLLoader loader=new FXMLLoader();
         loader.setLocation(getClass().getResource("EditProfileInformation.fxml"));
-        root = loader.load();
+        Parent root = loader.load();
         
         
         
@@ -121,6 +122,25 @@ public class TuitionFinder extends Application {
         controller.setTuitionFinder(this);
         
         stage.setTitle("Edit Profile");
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.show();
+    }
+    
+    public void selfStatusScreen(String name) throws IOException {
+        
+        
+        FXMLLoader loader=new FXMLLoader();
+        loader.setLocation(getClass().getResource("SelfStatusPage.fxml"));
+        Parent root = loader.load();
+        
+        
+        
+        SelfStatusPageController controller = loader.getController();
+        controller.setUsernametext(name);
+        controller.setTutionFinder(this);
+        
+        stage.setTitle(name);
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.show();
