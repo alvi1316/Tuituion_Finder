@@ -135,7 +135,7 @@ public class Database {
 		List<PostInfo> postinfo = new ArrayList<>();
 		Connection conn = DriverManager.getConnection("jdbc:sqlite:Users\\"+TuitionFinder.username+"\\"+TuitionFinder.username+".db");
 		try {
-			String query = "select * from post order by posttime";
+			String query = "select * from post order by postdate";
                         Statement stmt = conn.createStatement();
                         ResultSet rs = stmt.executeQuery(query);
 			
@@ -152,7 +152,7 @@ public class Database {
                                 p.setPostdate(rs.getString("postdate"));
 				postinfo.add(p);
 			}
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			System.out.println("Exception in listProducts: " + e);
 		} finally {
 			conn.close();

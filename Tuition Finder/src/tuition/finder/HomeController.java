@@ -24,7 +24,6 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 
@@ -136,7 +135,7 @@ public class HomeController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        setUsernametext();
         
         FileInputStream input = null;
         try {
@@ -173,9 +172,7 @@ public class HomeController implements Initializable {
 
     @FXML
     private void searchEnterPressed(KeyEvent event) throws IOException {
-        if(event.getCode() == KeyCode.ENTER){
-            tuitionFinder.profileScreen(usernametext.getText());
-        }
+        
     }
 
     @FXML
@@ -202,7 +199,7 @@ public class HomeController implements Initializable {
                 p.setPostdate(dateformat.format(date));
                 p.setPosttime(timeformat.format(date));
 
-                Database.writePost(usernametext.getText(), p);
+                Database.writePost(TuitionFinder.username, p);
             } catch (SQLException ex) {
                 Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
             }

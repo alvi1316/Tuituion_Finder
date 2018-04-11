@@ -17,7 +17,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.Hyperlink;
@@ -130,20 +129,24 @@ public class SelfStatusPageController implements Initializable {
     private Button loadmore;
     @FXML
     private Label errorlbl;
+    
     private AnchorPane temppane;
     
-    TuitionFinder tuitionfinder;
+
 
     public void setTuitionfinder(TuitionFinder tuitionfinder) {
-        this.tuitionfinder = tuitionfinder;
+        this.tuitionFinder = tuitionfinder;
     }
-    
+    public void setUsername(){
+        usernametext.setText(TuitionFinder.username);
+    }
    
     
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb){
+        setUsername();
         try {
             int y = 0;
             int count=0;
@@ -196,10 +199,7 @@ public class SelfStatusPageController implements Initializable {
                 Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
-        
-        
-        usernametext.setText(tuitionfinder.username);
+        usernametext.setText(TuitionFinder.username);
         
     }    
 
@@ -214,6 +214,7 @@ public class SelfStatusPageController implements Initializable {
 
     @FXML
     private void userNamePressed(ActionEvent event) throws IOException {
+        tuitionFinder.selfStatusScreen();
        
        
     }
@@ -493,8 +494,12 @@ public class SelfStatusPageController implements Initializable {
     }
 
     @FXML
-    private void hemePressed(ActionEvent event) throws IOException {
-        tuitionfinder.homePage();
+    private void hemePressed(ActionEvent event){
+        try {
+            tuitionFinder.homePage();
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
     }
 
     

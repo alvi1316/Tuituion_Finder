@@ -7,16 +7,13 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import javafx.scene.Parent;
+import javafx.scene.layout.AnchorPane;
 
 
 public class TuitionFinder extends Application {
     Stage stage;
     static String username;
 
-    
-    
-    
-    
     
     @Override
     public void start(Stage primaryStage) throws IOException{
@@ -46,7 +43,7 @@ public class TuitionFinder extends Application {
         
         FXMLLoader loader=new FXMLLoader();
         loader.setLocation(getClass().getResource("SignUp.fxml"));
-        Parent root = loader.load();
+        AnchorPane root = loader.load();
         
         SignUpController controller = loader.getController();
         controller.setTuitionfinder(this);
@@ -58,11 +55,11 @@ public class TuitionFinder extends Application {
     }
     
     public void homePage() throws IOException{
+        
         FXMLLoader loader = new FXMLLoader();
+        
         loader.setLocation(getClass().getResource("Home.fxml"));
-        Parent root = loader.load();
-        
-        
+        AnchorPane root = loader.load();
         HomeController controller = loader.getController();
         controller.setUsernametext();
         controller.setTutionFinder(this);
@@ -80,7 +77,7 @@ public class TuitionFinder extends Application {
         
         FXMLLoader loader=new FXMLLoader();
         loader.setLocation(getClass().getResource("ForgotPassword.fxml"));
-        Parent root = loader.load();
+        AnchorPane root = loader.load();
         
         ForgotPasswordController controller = loader.getController();
         controller.setTuitionFinder(this);
@@ -96,7 +93,7 @@ public class TuitionFinder extends Application {
         
         FXMLLoader loader=new FXMLLoader();
         loader.setLocation(getClass().getResource("ProfileInformation.fxml"));
-        Parent root = loader.load();
+        AnchorPane root = loader.load();
         
         ProfileInformationController controller = loader.getController();
         controller.setName(name);
@@ -114,7 +111,7 @@ public class TuitionFinder extends Application {
         
         FXMLLoader loader=new FXMLLoader();
         loader.setLocation(getClass().getResource("EditProfileInformation.fxml"));
-        Parent root = loader.load();
+        AnchorPane root = loader.load();
         
         
         
@@ -132,15 +129,11 @@ public class TuitionFinder extends Application {
         
         
         
-        
         FXMLLoader loader=new FXMLLoader();
         loader.setLocation(getClass().getResource("SelfStatusPage.fxml"));
-        Parent root = loader.load();
-        
-        
+        AnchorPane root = loader.load();
         SelfStatusPageController controller = loader.getController();
         controller.setTutionFinder(this);
-        
         stage.setTitle(username);
         stage.setScene(new Scene(root));
         stage.setResizable(false);
