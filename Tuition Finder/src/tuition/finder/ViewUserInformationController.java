@@ -95,6 +95,9 @@ public class ViewUserInformationController implements Initializable {
             if(follow.equals(TuitionFinder.username)){
                 followButton.setVisible(false);
             }
+            if(Database.checkFollow(follow,TuitionFinder.username)){
+                followButton.setVisible(false);
+            }
         } catch (SQLException ex) {
             Logger.getLogger(ProfileInformationController.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,10 +33,14 @@ public class SearchPageController implements Initializable {
     private AnchorPane scrollpane;
     @FXML
     private Button loadmore;
+    @FXML
+    private AnchorPane root;
+    @FXML
+    private AnchorPane followScrollPane;
+    @FXML
+    private AnchorPane temppane;
     
     TuitionFinder tuitionFinder;
-
-    
 
     public void setTuitionFinder(TuitionFinder tuitionFinder) {
         this.tuitionFinder = tuitionFinder;
@@ -71,31 +77,62 @@ public class SearchPageController implements Initializable {
     
     
     public void init(){
-        try{
+        int y=0;
+        try {
+            List<FollowInfo> followinfo = Database.searchResult(TuitionFinder.search);
+            for(FollowInfo q : followinfo ){
+                ProInfo p = Database.getProfile(q.getName());
+                FXMLLoader loader=new FXMLLoader();
+                loader.setLocation(getClass().getResource("SearchComp.fxml"));
+                AnchorPane root = loader.load();
+                SearchCompController con = loader.getController();
+                con.setTuitionfinder(tuitionFinder);
+                con.setUsernametext(p.getUserName());
+                con.setEmailtext(p.getUserEmail());
+                con.setInstitutetext(p.getUserInstitute());
+                con.setLocationtext(p.getAddress());
+                con.setphonetext(Integer.toString(p.getUserPhone()));
+                con.setSextext(p.getUserSex());
+                root.setLayoutX(0);
+                root.setLayoutY(0+y);
+                scrollpane.getChildren().add(root);
+                y=y+101;
+                
+            }
             
-            ProInfo p = Database.getProfile(TuitionFinder.search);
-            FXMLLoader loader=new FXMLLoader();
-            loader.setLocation(getClass().getResource("SearchComp.fxml"));
-            AnchorPane root = loader.load();
-            SearchCompController con = loader.getController();
-            con.setTuitionfinder(tuitionFinder);
-            con.setUsernametext(p.getUserName());
-            con.setEmailtext(p.getUserEmail());
-            con.setInstitutetext(p.getUserInstitute());
-            con.setLocationtext(p.getAddress());
-            con.setphonetext(Integer.toString(p.getUserPhone()));
-            con.setSextext(p.getUserSex());
-            root.setLayoutX(0);
-            root.setLayoutY(0);
-            scrollpane.getChildren().add(root);
-        }catch(Exception e){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Search Failed");
-            alert.setHeaderText("Sorry could't find User");
-            alert.setContentText("Search Again Using Valid Name!");
-            alert.showAndWait();
+        } catch (Exception e) {
             System.out.println(e);
-            System.out.println(e);
+        }
+        
+        
+        
+        
+        
+        
+    }
+    public void setFollow(){
+        try {
+            int y = 0;
+            List<FollowInfo> followinfo = Database.getFollowInfo();
+            for (int i=followinfo.size()-1;i>=0;i--){
+                FXMLLoader loader=new FXMLLoader();
+                loader.setLocation(getClass().getResource("FollowComp.fxml"));
+                
+                try {
+                    temppane = loader.load();
+                    temppane.setLayoutX(0);
+                    temppane.setLayoutY(5+y);
+                    FollowCompController con = loader.getController();
+                    con.setTuitionfinder(tuitionFinder);
+                    con.setFollowCompText(followinfo.get(i).getName());
+                    followScrollPane.getChildren().add(temppane);
+                    y=y+48;
+                } catch (IOException ex) {
+                    Logger.getLogger(SelfStatusPageController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }  
+        } catch (SQLException ex) {
+            Logger.getLogger(SelfStatusPageController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

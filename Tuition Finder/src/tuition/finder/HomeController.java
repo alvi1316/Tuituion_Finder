@@ -9,12 +9,15 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.Hyperlink;
@@ -128,6 +131,10 @@ public class HomeController implements Initializable {
     private Label errorlbl;
     @FXML
     private TextField searchtext;
+    @FXML
+    private AnchorPane followScrollPane;
+    @FXML
+    private AnchorPane temppane;
 
     
     
@@ -169,7 +176,33 @@ public class HomeController implements Initializable {
     private void userNamePressed(ActionEvent event) throws IOException {
         
         tuitionFinder.selfStatusScreen();
+        
        
+    }
+    public void setFollow(){
+        try {
+            int y = 0;
+            List<FollowInfo> followinfo = Database.getFollowInfo();
+            for (int i=followinfo.size()-1;i>=0;i--){
+                FXMLLoader loader=new FXMLLoader();
+                loader.setLocation(getClass().getResource("FollowComp.fxml"));
+                
+                try {
+                    temppane = loader.load();
+                    temppane.setLayoutX(0);
+                    temppane.setLayoutY(5+y);
+                    FollowCompController con = loader.getController();
+                    con.setTuitionfinder(tuitionFinder);
+                    con.setFollowCompText(followinfo.get(i).getName());
+                    followScrollPane.getChildren().add(temppane);
+                    y=y+48;
+                } catch (IOException ex) {
+                    Logger.getLogger(SelfStatusPageController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }  
+        } catch (SQLException ex) {
+            Logger.getLogger(SelfStatusPageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 
@@ -442,9 +475,13 @@ public class HomeController implements Initializable {
 
     @FXML
     private void searchButtonPressed(ActionEvent event) throws IOException{
-        TuitionFinder.search = searchtext.getText();
-        tuitionFinder.searchPage();
-        
+        try {
+            TuitionFinder.search = searchtext.getText();
+            tuitionFinder.searchPage();
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     

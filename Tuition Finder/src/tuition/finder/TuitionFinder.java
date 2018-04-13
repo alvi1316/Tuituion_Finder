@@ -61,6 +61,7 @@ public class TuitionFinder extends Application {
         HomeController controller = loader.getController();
         controller.setUsernametext();
         controller.setTutionFinder(this);
+        controller.setFollow();
         stage.setMaximized(true);
         stage.setTitle("Home");
         stage.setScene(new Scene(root));
@@ -167,12 +168,6 @@ public class TuitionFinder extends Application {
         stage.setResizable(false);
         stage.show();
     }
-    
-    
-    
-    
-    
-    
     
     
     public static void main(String[] args) {

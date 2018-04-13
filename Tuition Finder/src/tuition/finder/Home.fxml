@@ -170,5 +170,10 @@
          </content>
       </ScrollPane>
       <Label layoutX="1530.0" layoutY="65.0" prefHeight="36.0" prefWidth="388.0" style="-fx-background-color: #8c151e;" text="                       People that you are following " textAlignment="CENTER" textFill="WHITE" />
+      <ScrollPane layoutX="1530.0" layoutY="110.0" prefHeight="927.0" prefWidth="388.0">
+        <content>
+          <AnchorPane fx:id="followScrollPane" minHeight="0.0" minWidth="0.0" prefHeight="925.0" prefWidth="386.0" />
+        </content>
+      </ScrollPane>
    </children>
 </AnchorPane>
