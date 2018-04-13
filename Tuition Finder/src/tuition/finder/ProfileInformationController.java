@@ -53,6 +53,8 @@ public class ProfileInformationController implements Initializable {
     private Text userHscCg;
     @FXML
     private TextArea userDescription;
+    @FXML
+    private Text useraddress;
 
     /**
      * Initializes the controller class.
@@ -80,6 +82,7 @@ public class ProfileInformationController implements Initializable {
             userName.setText(p.getUserName());
             userAge.setText(p.getUserAge());
             userSex.setText(p.getUserSex());
+            useraddress.setText(p.getAddress());
             userCGPA.setText(Double.toString(p.getUserCGPA()));
             userSscCg.setText(Double.toString(p.getUserSscCg()));
             userHscCg.setText(Double.toString(p.getUserHscCg()));

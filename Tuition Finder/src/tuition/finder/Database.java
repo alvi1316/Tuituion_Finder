@@ -159,6 +159,28 @@ public class Database {
 		}
 		return postinfo;
 	}
-  
+    
+    
+    public static ResultSet searchResult(String s) throws SQLException{
+        ResultSet rs = null;
+        Connection con = DriverManager.getConnection("jdbc:sqlite:Users\\Usernames\\usernames.db");
+        Statement stmt = con.createStatement();
+        rs = stmt.executeQuery(s);
+                
+        
+        return rs;
+    }
+    public static void writeFollow(String follow,String username) throws SQLException{
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:Users\\"+username+"\\"+username+".db");
+        String sql = "CREATE TABLE IF NOT EXISTS following " + "(" 
+                    + "username string"
+                    + ");";
+        String insertQuery = String.format("INSERT INTO following(username)Values('%s')",follow);
+        Statement stmt = conn.createStatement();
+        stmt.execute(sql);
+        stmt.executeUpdate(insertQuery);
+    }
+    
+    
     
 }

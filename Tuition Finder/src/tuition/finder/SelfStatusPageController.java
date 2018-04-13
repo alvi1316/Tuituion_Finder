@@ -24,6 +24,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -131,10 +132,12 @@ public class SelfStatusPageController implements Initializable {
     private Label errorlbl;
     
     private AnchorPane temppane;
+    @FXML
+    private TextField searchtext;
     
 
 
-    public void setTuitionfinder(TuitionFinder tuitionfinder) {
+    public void setTuitionFinder(TuitionFinder tuitionfinder) {
         this.tuitionFinder = tuitionfinder;
     }
     public void setUsername(){
@@ -151,26 +154,27 @@ public class SelfStatusPageController implements Initializable {
             int y = 0;
             int count=0;
             List<PostInfo> postinfo = Database.getPostInfo();
-            for (PostInfo p : postinfo) {
+            for (int i=postinfo.size()-1;i>=0;i--) {
                 if(count==5){
                     break;
                 }
                 FXMLLoader loader=new FXMLLoader();
                 loader.setLocation(getClass().getResource("PostComp.fxml"));
+                
                 try {
                     temppane = loader.load();
                     temppane.setLayoutX(0);
                     temppane.setLayoutY(210+y);
                     PostCompController con = loader.getController();
-                    con.setAreatext(p.getArea());
-                    con.setClasstext(p.getStuclass());
-                    con.setInstitutetext(p.getIns());
-                    con.setPostdatetext(p.getPostdate());
-                    con.setPosttimetext(p.getPosttime());
-                    con.setPrefinstext(p.getPrefins());
-                    con.setSalarytext(p.getSalary());
-                    con.setSubjectext(p.getSubtext());
-                    con.setTimetext(p.getTime());
+                    con.setAreatext(postinfo.get(i).getArea());
+                    con.setClasstext(postinfo.get(i).getStuclass());
+                    con.setInstitutetext(postinfo.get(i).getIns());
+                    con.setPostdatetext(postinfo.get(i).getPostdate());
+                    con.setPosttimetext(postinfo.get(i).getPosttime());
+                    con.setPrefinstext(postinfo.get(i).getPrefins());
+                    con.setSalarytext(postinfo.get(i).getSalary());
+                    con.setSubjectext(postinfo.get(i).getSubtext());
+                    con.setTimetext(postinfo.get(i).getTime());
                     scrollpane.getChildren().add(temppane);
                     y=y+144;
                     count++;
@@ -203,9 +207,6 @@ public class SelfStatusPageController implements Initializable {
         
     }    
 
-    public void setTutionFinder(TuitionFinder tuitionFinder) {
-        this.tuitionFinder = tuitionFinder;
-    }
 
     @FXML
     private void logoutPressed(ActionEvent event) throws IOException {
@@ -500,6 +501,12 @@ public class SelfStatusPageController implements Initializable {
         } catch (IOException ex) {
             System.out.println(ex);
         }
+    }
+
+    @FXML
+    private void searchButtonPressed(ActionEvent event) throws IOException {
+        TuitionFinder.search = searchtext.getText();
+        tuitionFinder.searchPage();
     }
 
     

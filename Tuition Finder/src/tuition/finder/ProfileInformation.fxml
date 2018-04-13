@@ -38,17 +38,17 @@
             <Font size="26.0" />
          </font>
       </Text>
-      <Text fx:id="userEmail" fill="WHITE" layoutX="492.0" layoutY="488.0" strokeType="OUTSIDE" strokeWidth="0.0" text="deadhead1316@gmail.com" wrappingWidth="450.0">
+      <Text fx:id="userEmail" fill="WHITE" layoutX="492.0" layoutY="488.0" strokeType="OUTSIDE" strokeWidth="0.0" text="user mail" wrappingWidth="450.0">
          <font>
             <Font size="26.0" />
          </font>
       </Text>
-      <Text fx:id="userInstitute" fill="WHITE" layoutX="492.0" layoutY="588.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NSU" wrappingWidth="300.0">
+      <Text fx:id="userInstitute" fill="WHITE" layoutX="492.0" layoutY="588.0" strokeType="OUTSIDE" strokeWidth="0.0" text="user ins" wrappingWidth="300.0">
          <font>
             <Font size="26.0" />
          </font>
       </Text>
-      <Text fx:id="userPhone" fill="WHITE" layoutX="492.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="01788494882" wrappingWidth="300.0">
+      <Text fx:id="userPhone" fill="WHITE" layoutX="492.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Number" wrappingWidth="300.0">
          <font>
             <Font size="26.0" />
          </font>
@@ -63,62 +63,26 @@
             <Font size="26.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="282.0" layoutY="888.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current CGPA :">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Text>
       <Text fill="WHITE" layoutX="282.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name :">
          <font>
             <Font size="26.0" />
          </font>
       </Text>
-      <Text fx:id="userName" fill="WHITE" layoutX="492.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shah Alvi Hosssain" wrappingWidth="300.0">
+      <Text fx:id="userName" fill="WHITE" layoutX="492.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username Text" wrappingWidth="300.0">
          <font>
             <Font size="26.0" />
          </font>
       </Text>
-      <Text fx:id="userAge" fill="WHITE" layoutX="492.0" layoutY="688.0" strokeType="OUTSIDE" strokeWidth="0.0" text="18-22" wrappingWidth="300.0">
+      <Text fx:id="userAge" fill="WHITE" layoutX="492.0" layoutY="688.0" strokeType="OUTSIDE" strokeWidth="0.0" text="user age" wrappingWidth="300.0">
          <font>
             <Font size="26.0" />
          </font>
       </Text>
-      <Text fx:id="userSex" fill="WHITE" layoutX="492.0" layoutY="788.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Male" wrappingWidth="300.0">
+      <Text fx:id="userSex" fill="WHITE" layoutX="492.0" layoutY="788.0" strokeType="OUTSIDE" strokeWidth="0.0" text="user sex" wrappingWidth="300.0">
          <font>
             <Font size="26.0" />
          </font>
       </Text>
-      <Text fx:id="userCGPA" fill="WHITE" layoutX="492.0" layoutY="888.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3.28" wrappingWidth="300.0">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Text>
-      <Text fill="WHITE" layoutX="282.0" layoutY="988.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSC GPA :">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Text>
-      <Text fx:id="userSscCg" fill="WHITE" layoutX="492.0" layoutY="988.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4.69" wrappingWidth="300.0">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Text>
-      <Text fill="WHITE" layoutX="1004.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HSC GPA :">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Text>
-      <Text fx:id="userHscCg" fill="WHITE" layoutX="1214.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4.14" wrappingWidth="300.0">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Text>
-      <Text fill="WHITE" layoutX="1004.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Text>
-      <TextArea fx:id="userDescription" editable="false" layoutX="1004.0" layoutY="320.0" prefHeight="464.0" prefWidth="676.0" text="I PLAY UNO!" wrapText="true" />
       <Button layoutX="1277.0" layoutY="862.0" mnemonicParsing="false" onAction="#homePressed" prefHeight="50.0" prefWidth="100.0" text="Home">
          <font>
             <Font size="23.0" />
@@ -129,5 +93,51 @@
             <Font size="23.0" />
          </font>
       </Button>
+      <Text fill="WHITE" layoutX="1045.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current CGPA :">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fx:id="userCGPA" fill="WHITE" layoutX="1254.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="user cgpa" wrappingWidth="300.0">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="1045.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSC GPA :">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fx:id="userSscCg" fill="WHITE" layoutX="1254.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="user ssc cg" wrappingWidth="300.0">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="1045.0" layoutY="398.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HSC GPA :">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fx:id="userHscCg" fill="WHITE" layoutX="1254.0" layoutY="398.0" strokeType="OUTSIDE" strokeWidth="0.0" text="user hsc cgpa" wrappingWidth="300.0">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="1045.0" layoutY="521.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="userDescription" editable="false" layoutX="1045.0" layoutY="553.0" prefHeight="241.0" prefWidth="676.0" text="user description" wrapText="true" />
+      <Text fill="WHITE" layoutX="282.0" layoutY="888.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address :">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fx:id="useraddress" fill="WHITE" layoutX="492.0" layoutY="888.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User address" wrappingWidth="337.50000804662704">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

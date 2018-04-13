@@ -22,9 +22,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 
 public class HomeController implements Initializable {
@@ -126,6 +126,8 @@ public class HomeController implements Initializable {
     private Button loadmore;
     @FXML
     private Label errorlbl;
+    @FXML
+    private TextField searchtext;
 
     
     
@@ -169,11 +171,7 @@ public class HomeController implements Initializable {
         tuitionFinder.selfStatusScreen();
        
     }
-
-    @FXML
-    private void searchEnterPressed(KeyEvent event) throws IOException {
-        
-    }
+    
 
     @FXML
     private void postPressed(ActionEvent event) {
@@ -440,6 +438,13 @@ public class HomeController implements Initializable {
     private void loadmorePressed(ActionEvent event) {
         scrollpane.setMinHeight(scrollpane.getHeight()+1011);
         loadmore.setLayoutY(scrollpane.getMinHeight()-50);
+    }
+
+    @FXML
+    private void searchButtonPressed(ActionEvent event) throws IOException{
+        TuitionFinder.search = searchtext.getText();
+        tuitionFinder.searchPage();
+        
     }
 
     

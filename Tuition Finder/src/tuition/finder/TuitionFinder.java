@@ -4,7 +4,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
@@ -13,8 +12,7 @@ import javafx.scene.layout.AnchorPane;
 public class TuitionFinder extends Application {
     Stage stage;
     static String username;
-
-    
+    static String search;
     @Override
     public void start(Stage primaryStage) throws IOException{
         this.stage=primaryStage;
@@ -90,12 +88,28 @@ public class TuitionFinder extends Application {
 
     public void profileScreen(String name) throws IOException {
         
-        
         FXMLLoader loader=new FXMLLoader();
         loader.setLocation(getClass().getResource("ProfileInformation.fxml"));
         AnchorPane root = loader.load();
         
         ProfileInformationController controller = loader.getController();
+        controller.setName(name);
+        controller.setEverything();
+        controller.setTuitionFinder(this);
+        
+        stage.setTitle("Profile");
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.show();
+    }
+    
+    public void viewProfileScreen(String name) throws IOException {
+        
+        FXMLLoader loader=new FXMLLoader();
+        loader.setLocation(getClass().getResource("ViewUserInformation.fxml"));
+        AnchorPane root = loader.load();
+        
+        ViewUserInformationController controller = loader.getController();
         controller.setName(name);
         controller.setEverything();
         controller.setTuitionFinder(this);
@@ -133,12 +147,31 @@ public class TuitionFinder extends Application {
         loader.setLocation(getClass().getResource("SelfStatusPage.fxml"));
         AnchorPane root = loader.load();
         SelfStatusPageController controller = loader.getController();
-        controller.setTutionFinder(this);
+        controller.setTuitionFinder(this);
         stage.setTitle(username);
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.show();
     }
+    
+    public void searchPage() throws IOException {
+
+        FXMLLoader loader=new FXMLLoader();
+        loader.setLocation(getClass().getResource("SearchPage.fxml"));
+        AnchorPane root = loader.load();
+        SearchPageController controller = loader.getController();        
+        controller.setTuitionFinder(this);
+        controller.init();
+        stage.setTitle("Search");
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.show();
+    }
+    
+    
+    
+    
+    
     
     
     
