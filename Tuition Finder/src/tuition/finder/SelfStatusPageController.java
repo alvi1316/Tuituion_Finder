@@ -134,6 +134,8 @@ public class SelfStatusPageController implements Initializable {
     private AnchorPane temppane;
     @FXML
     private TextField searchtext;
+    @FXML
+    private AnchorPane followScrollPane;
     
 
 
@@ -205,7 +207,33 @@ public class SelfStatusPageController implements Initializable {
         }
         usernametext.setText(TuitionFinder.username);
         
-    }    
+    }
+
+    public void setFollow(){
+        try {
+            int y = 0;
+            List<FollowInfo> followinfo = Database.getFollowInfo();
+            for (int i=followinfo.size()-1;i>=0;i--){
+                FXMLLoader loader=new FXMLLoader();
+                loader.setLocation(getClass().getResource("FollowComp.fxml"));
+                
+                try {
+                    temppane = loader.load();
+                    temppane.setLayoutX(0);
+                    temppane.setLayoutY(5+y);
+                    FollowCompController con = loader.getController();
+                    con.setTuitionfinder(tuitionFinder);
+                    con.setFollowCompText(followinfo.get(i).getName());
+                    followScrollPane.getChildren().add(temppane);
+                    y=y+48;
+                } catch (IOException ex) {
+                    Logger.getLogger(SelfStatusPageController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }  
+        } catch (SQLException ex) {
+            Logger.getLogger(SelfStatusPageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
 
     @FXML
@@ -507,6 +535,11 @@ public class SelfStatusPageController implements Initializable {
     private void searchButtonPressed(ActionEvent event) throws IOException {
         TuitionFinder.search = searchtext.getText();
         tuitionFinder.searchPage();
+    }
+
+    @FXML
+    private void settingsPressed(ActionEvent event) throws IOException {
+        tuitionFinder.profileScreen(TuitionFinder.username);
     }
 
     

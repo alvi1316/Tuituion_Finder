@@ -34,13 +34,13 @@
                </HBox.margin>
             </Text>
             <Region prefHeight="53.0" prefWidth="18.0" />
-            <TextField onKeyPressed="#searchEnterPressed" prefHeight="51.0" prefWidth="577.0" promptText="Search">
+            <TextField fx:id="searchtext" onKeyPressed="#searchEnterPressed" prefHeight="51.0" prefWidth="577.0" promptText="Search">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
             <Region prefHeight="53.0" prefWidth="14.0" />
-            <Button fx:id="search" mnemonicParsing="false" prefHeight="50.0" prefWidth="55.0" />
+            <Button fx:id="search" mnemonicParsing="false" onAction="#searchButtonPressed" prefHeight="50.0" prefWidth="55.0" />
             <Region prefHeight="53.0" prefWidth="275.0" />
             <Hyperlink fx:id="usernametext" onAction="#userNamePressed" prefHeight="35.0" prefWidth="221.0" text="UsernameText" textFill="WHITE" textOverrun="CLIP">
                <HBox.margin>
@@ -62,7 +62,7 @@
             <Region prefHeight="53.0" prefWidth="28.0" />
             <MenuButton mnemonicParsing="false" text="Menu">
               <items>
-                <MenuItem mnemonicParsing="false" text="Settings" />
+                <MenuItem mnemonicParsing="false" onAction="#settingsPressed" text="Settings" />
                 <MenuItem mnemonicParsing="false" onAction="#logoutPressed" text="Logout" />
               </items>
                <HBox.margin>

@@ -196,7 +196,13 @@ public class Database {
     
     public static List<FollowInfo> searchResult(String search) throws SQLException{ 
         Connection con = DriverManager.getConnection("jdbc:sqlite:Users\\Usernames\\usernames.db");
-        String query = "SELECT username FROM usernames WHERE username LIKE '%" + search + "%'";
+        String query;
+        if(search.length()<4){
+            query = "SELECT username FROM usernames WHERE username LIKE '" + search + "%'";
+        }else{
+            query = "SELECT username FROM usernames WHERE username LIKE '%" + search + "%'";
+        }
+        
         Statement stmt = con.createStatement();
         ResultSet rs = stmt.executeQuery(query);
         List<FollowInfo> searchinfo = new ArrayList<>();
@@ -210,6 +216,7 @@ public class Database {
             do{
                 FollowInfo p = new FollowInfo();
                 p.setName(rs.getString("username"));
+                System.out.println(rs.getString("username"));
                 searchinfo.add(p);
             }while(rs.next());
         }

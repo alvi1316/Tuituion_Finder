@@ -17,7 +17,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.Hyperlink;
@@ -133,7 +132,6 @@ public class HomeController implements Initializable {
     private TextField searchtext;
     @FXML
     private AnchorPane followScrollPane;
-    @FXML
     private AnchorPane temppane;
 
     
@@ -479,9 +477,14 @@ public class HomeController implements Initializable {
             TuitionFinder.search = searchtext.getText();
             tuitionFinder.searchPage();
             
-        } catch (Exception e) {
+        } catch (IOException e) {
             System.out.println(e);
         }
+    }
+
+    @FXML
+    private void settingsPressed(ActionEvent event) throws IOException {
+        tuitionFinder.profileScreen(TuitionFinder.username);
     }
 
     

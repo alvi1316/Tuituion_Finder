@@ -149,6 +149,7 @@ public class TuitionFinder extends Application {
         AnchorPane root = loader.load();
         SelfStatusPageController controller = loader.getController();
         controller.setTuitionFinder(this);
+        controller.setFollow();
         stage.setTitle(username);
         stage.setScene(new Scene(root));
         stage.setResizable(false);
@@ -163,6 +164,7 @@ public class TuitionFinder extends Application {
         SearchPageController controller = loader.getController();        
         controller.setTuitionFinder(this);
         controller.init();
+        controller.setFollow();
         stage.setTitle("Search");
         stage.setScene(new Scene(root));
         stage.setResizable(false);

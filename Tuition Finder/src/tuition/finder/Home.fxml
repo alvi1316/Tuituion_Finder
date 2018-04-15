@@ -65,7 +65,7 @@
             <Region prefHeight="53.0" prefWidth="28.0" />
             <MenuButton mnemonicParsing="false" text="Menu">
               <items>
-                <MenuItem mnemonicParsing="false" text="Settings" />
+                <MenuItem mnemonicParsing="false" onAction="#settingsPressed" text="Settings" />
                 <MenuItem mnemonicParsing="false" onAction="#logoutPressed" text="Logout" />
               </items>
                <HBox.margin>
