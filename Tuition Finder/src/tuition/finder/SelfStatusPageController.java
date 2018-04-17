@@ -531,7 +531,7 @@ public class SelfStatusPageController implements Initializable {
             int count=0;
             List<PostInfo> postinfo = Database.getPostInfo(TuitionFinder.username);
             for(int i=postinfo.size()-this.i;i>=0;) {
-                if(count==5){
+                if(count==7){
                     break;
                 }
                 FXMLLoader loader=new FXMLLoader();
@@ -564,7 +564,7 @@ public class SelfStatusPageController implements Initializable {
                     loadmore.setVisible(false);
                 }
             } 
-            this.y=this.y+930;
+            this.y=this.y+1010;
             this.i=this.i+5;
             
         } catch (SQLException ex) {
@@ -585,8 +585,10 @@ public class SelfStatusPageController implements Initializable {
 
     @FXML
     private void searchButtonPressed(ActionEvent event) throws IOException {
-        TuitionFinder.search = searchtext.getText();
-        tuitionFinder.searchPage();
+        if(!searchtext.getText().equals("")){
+            TuitionFinder.search = searchtext.getText();
+            tuitionFinder.searchPage();
+        }
     }
 
     @FXML

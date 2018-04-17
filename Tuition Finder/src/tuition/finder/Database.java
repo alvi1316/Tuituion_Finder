@@ -317,4 +317,49 @@ public class Database {
         return fp;
     }
     
+    public static List<PostInfo> customSearch(PostInfo p) throws SQLException{
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:Users\\Usernames\\usernames.db");
+        String query = "SELECT * FROM allpost WHERE";
+        if(!p.getArea().equals("Area")){
+            query = query + " area = '"+p.getArea()+"' OR";
+        }
+        if(!p.getIns().equals("Institute")){
+            query = query + " ins = '"+p.getIns()+"' OR";
+        }
+        if(!p.getTime().equals("Time")){
+            query = query + " time = '"+p.getTime()+"' OR";
+        }
+        if(!p.getStuclass().equals("Class")){
+            query = query + " class = '"+p.getStuclass()+"' OR";
+        }
+        if(!p.getSalary().equals("Salary")){
+            query = query + " salary = '"+p.getSalary()+"' OR";
+        }
+        if(!p.getSubtext().equals("")){
+            query = query + " subtext = '"+p.getSubtext()+"' OR";
+        }
+        query = query.substring(0, query.length()-2);
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(query);
+        List<PostInfo> fp = new ArrayList<>();
+        while (rs.next()) 
+        {
+            PostInfo pb = new PostInfo();
+            pb.setUsername(rs.getString("username"));
+            pb.setArea(rs.getString("area"));
+            pb.setTime(rs.getString("time"));
+            pb.setSalary(rs.getString("salary"));
+            pb.setSubtext(rs.getString("subtext"));
+            pb.setIns(rs.getString("ins"));
+            pb.setStuclass(rs.getString("class"));
+            pb.setPrefins(rs.getString("prefins"));
+            pb.setPosttime(rs.getString("posttime"));
+            pb.setPostdate(rs.getString("postdate"));
+            fp.add(pb);
+	}
+        conn.close();
+        return fp;
+    }
+    
+    
 }

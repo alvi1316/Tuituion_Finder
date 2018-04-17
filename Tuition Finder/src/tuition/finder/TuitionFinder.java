@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.List;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 
@@ -185,6 +186,20 @@ public class TuitionFinder extends Application {
         SearchPageController controller = loader.getController();        
         controller.setTuitionFinder(this);
         controller.init();
+        controller.setFollow();
+        stage.setTitle("Search");
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.show();
+    }
+    public void customSearchPage(List<PostInfo> fp) throws IOException {
+
+        FXMLLoader loader=new FXMLLoader();
+        loader.setLocation(getClass().getResource("SearchPage.fxml"));
+        AnchorPane root = loader.load();
+        SearchPageController controller = loader.getController();        
+        controller.setTuitionFinder(this);
+        controller.search(fp);
         controller.setFollow();
         stage.setTitle("Search");
         stage.setScene(new Scene(root));

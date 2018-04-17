@@ -552,7 +552,7 @@ public class HomeController implements Initializable {
                     loadmore.setVisible(false);
                 }
             } 
-            this.y=this.y+1000;
+            this.y=this.y+1010;
             this.i=this.i+5;
             
         } catch (SQLException ex) {
@@ -565,13 +565,16 @@ public class HomeController implements Initializable {
 
     @FXML
     private void searchButtonPressed(ActionEvent event) throws IOException{
-        try {
+        if(!searchtext.getText().equals("")){
+            try {
             TuitionFinder.search = searchtext.getText();
             tuitionFinder.searchPage();
             
-        } catch (IOException e) {
-            System.out.println(e);
+            } catch (IOException e) {
+                System.out.println(e);
+            }
         }
+        
     }
 
     @FXML

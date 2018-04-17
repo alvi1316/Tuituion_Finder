@@ -2,11 +2,13 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckMenuItem?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -74,11 +76,11 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </HBox>
-      <ScrollPane layoutY="65.0" prefHeight="1014.0" prefWidth="1528.0">
+      <ScrollPane layoutY="197.0" prefHeight="882.0" prefWidth="1528.0">
          <content>
-            <AnchorPane fx:id="scrollpane" prefHeight="1011.0" prefWidth="1525.0" style="-fx-background-color: White;">
+            <AnchorPane fx:id="scrollpane" prefHeight="879.0" prefWidth="1525.0" style="-fx-background-color: White;">
                <children>
-                  <Button fx:id="loadmore" layoutY="940.0" mnemonicParsing="false" onAction="#loadmorePressed" prefWidth="1525.0" text="Load More!" />
+                  <Button fx:id="loadmore" layoutY="811.0" mnemonicParsing="false" onAction="#loadmorePressed" prefHeight="31.0" prefWidth="1524.0" text="Load More!" />
                </children>
             </AnchorPane>
          </content>
@@ -89,5 +91,69 @@
             <AnchorPane fx:id="followScrollPane" minHeight="0.0" minWidth="0.0" prefHeight="925.0" prefWidth="386.0" />
          </content>
       </ScrollPane>
+      <AnchorPane layoutY="70.0" prefHeight="119.0" prefWidth="1525.0" style="-fx-background-color: #8c151e;">
+         <children>
+            <MenuButton fx:id="subject" layoutX="228.0" layoutY="65.0" mnemonicParsing="false" text="Subjects">
+               <items>
+                  <CheckMenuItem fx:id="bangla1" mnemonicParsing="false" onAction="#bangla1Pressed" text="Bangla-1st" />
+                  <CheckMenuItem fx:id="bangla2" mnemonicParsing="false" onAction="#bangla2Pressed" text="Bangla-2nd" />
+                  <CheckMenuItem fx:id="english1" mnemonicParsing="false" onAction="#english1Pressed" text="English-1st" />
+                  <CheckMenuItem fx:id="english2" mnemonicParsing="false" onAction="#english2Pressed" text="English-2nd" />
+                  <CheckMenuItem fx:id="math" mnemonicParsing="false" onAction="#mathPressed" text="Math" />
+                  <CheckMenuItem fx:id="phy" mnemonicParsing="false" onAction="#phyPressed" text="Physics" />
+                  <CheckMenuItem fx:id="chem" mnemonicParsing="false" onAction="#chemPressed" text="Chemistry" />
+                  <CheckMenuItem fx:id="bio" mnemonicParsing="false" onAction="#boiPressed" text="Biology" />
+                  <CheckMenuItem fx:id="ict" mnemonicParsing="false" onAction="#ictPressed" text="ICT" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="area" layoutX="228.0" layoutY="12.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="135.0" text="Area">
+               <items>
+                  <MenuItem fx:id="area1" mnemonicParsing="false" onAction="#area1Pressed" text="Uttara" />
+                  <MenuItem fx:id="area2" mnemonicParsing="false" onAction="#area2Pressed" text="Bosundara" />
+                  <MenuItem fx:id="area3" mnemonicParsing="false" onAction="#area3Pressed" text="Bonani" />
+                  <MenuItem fx:id="area4" mnemonicParsing="false" onAction="#area4Pressed" text="Gulshan" />
+                  <MenuItem fx:id="area5" mnemonicParsing="false" onAction="#area5Pressed" text="Mirpur" />
+                  <MenuItem fx:id="area6" mnemonicParsing="false" onAction="#area6Pressed" text="Basabo" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="time" layoutX="451.0" layoutY="12.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="135.0" text="Time">
+               <items>
+                  <MenuItem fx:id="time1" mnemonicParsing="false" onAction="#time1Pressed" text="Morning" />
+                  <MenuItem fx:id="time2" mnemonicParsing="false" onAction="#time2Pressed" text="Afternoon" />
+                  <MenuItem fx:id="time3" mnemonicParsing="false" onAction="#time3Pressed" text="Night" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="stuclass" layoutX="1142.0" layoutY="12.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="135.0" text="Class">
+               <items>
+                  <MenuItem fx:id="class1" mnemonicParsing="false" onAction="#class1Pressed" text="Class 5" />
+                  <MenuItem fx:id="class2" mnemonicParsing="false" onAction="#class2Pressed" text="Class 6" />
+                  <MenuItem fx:id="class3" mnemonicParsing="false" onAction="#class3Pressed" text="Class 7" />
+                  <MenuItem fx:id="class4" mnemonicParsing="false" onAction="#class4Pressed" text="Class 8" />
+                  <MenuItem fx:id="class5" mnemonicParsing="false" onAction="#class5Pressed" text="Class 9" />
+                  <MenuItem fx:id="class6" mnemonicParsing="false" onAction="#class6Pressed" text="Class 10" />
+                  <MenuItem fx:id="class7" mnemonicParsing="false" onAction="#class7Pressed" text="Inter 1st" />
+                  <MenuItem fx:id="class8" mnemonicParsing="false" onAction="#class8Pressed" text="Inter 2nd" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="salary" layoutX="742.0" layoutY="12.0" mnemonicParsing="false" text="Salary">
+               <items>
+                  <MenuItem fx:id="salary1" mnemonicParsing="false" onAction="#salary1Pressed" text="1000 + Taka" />
+                  <MenuItem fx:id="salary2" mnemonicParsing="false" onAction="#salary2Pressed" text="3000 + Taka" />
+                  <MenuItem fx:id="salary3" mnemonicParsing="false" onAction="#salary3Pressed" text="5000 + Taka" />
+                  <MenuItem fx:id="salary4" mnemonicParsing="false" onAction="#salary4Pressed" text="7000 + Taka" />
+                  <MenuItem fx:id="salary5" mnemonicParsing="false" onAction="#salary5Pressed" text="10,000 + Taka" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="ins" layoutX="929.0" layoutY="12.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="31.0" prefWidth="135.0" text="Institute">
+               <items>
+                  <MenuItem fx:id="ins1" mnemonicParsing="false" onAction="#ins1Pressed" text="Uttara Rajuk School and College" />
+                  <MenuItem fx:id="ins2" mnemonicParsing="false" onAction="#ins2Pressed" text="Uttara High School and College" />
+               </items>
+            </MenuButton>
+            <TextArea fx:id="subtext" editable="false" layoutX="362.0" layoutY="60.0" prefHeight="47.0" prefWidth="772.0" promptText="Selected Subjects" wrapText="true" />
+            <Text fill="WHITE" layoutX="23.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search Using Attributes :" />
+            <Button layoutX="1397.0" layoutY="22.0" mnemonicParsing="false" onAction="#customSearchPressed" prefHeight="75.0" prefWidth="82.0" text="Search" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
