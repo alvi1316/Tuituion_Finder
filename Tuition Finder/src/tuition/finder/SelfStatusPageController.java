@@ -202,6 +202,9 @@ public class SelfStatusPageController implements Initializable {
                     scrollpane.getChildren().add(temppane);
                     y=y+144;
                     count++;
+                    if(i==0){
+                        loadmore.setVisible(false);
+                    }
                 } catch (IOException ex) {
                     Logger.getLogger(SelfStatusPageController.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -527,7 +530,7 @@ public class SelfStatusPageController implements Initializable {
             int y = 0;
             int count=0;
             List<PostInfo> postinfo = Database.getPostInfo(TuitionFinder.username);
-            for (int i=postinfo.size()-1;i>=0;i--) {
+            for(int i=postinfo.size()-this.i;i>=0;) {
                 if(count==5){
                     break;
                 }

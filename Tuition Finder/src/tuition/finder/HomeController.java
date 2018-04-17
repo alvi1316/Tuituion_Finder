@@ -182,6 +182,9 @@ public class HomeController implements Initializable {
             int y = 0;
             int count=0;
             List<PostInfo> postinfo = Database.getFollowPost(username);
+            if(postinfo.isEmpty()){
+                loadmore.setVisible(false);
+            }
             for (int i=postinfo.size()-1;i>=0;i--) {
                 if(count==5){
                     break;
@@ -208,6 +211,9 @@ public class HomeController implements Initializable {
                     scrollpane.getChildren().add(temppane);
                     y=y+144;
                     count++;
+                    if(i==0){
+                        loadmore.setVisible(false);
+                    }
                 } catch (IOException ex) {
                     Logger.getLogger(SelfStatusPageController.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -267,7 +273,6 @@ public class HomeController implements Initializable {
                 p.setSubtext(subtext.getText());
                 p.setPostdate(dateformat.format(date));
                 p.setPosttime(timeformat.format(date));
-
                 Database.writePost(TuitionFinder.username, p);
             } catch (SQLException ex) {
                 Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
@@ -513,8 +518,8 @@ public class HomeController implements Initializable {
             int count=0;
             
             List<PostInfo> postinfo = Database.getFollowPost(TuitionFinder.username);
-            for (int i=postinfo.size()-this.i;i>=0;) {
-                if(count==5){
+            for (int i=postinfo.size()-this.i;i>=0;i--) {
+                if(count==7){
                     break;
                 }
                 FXMLLoader loader=new FXMLLoader();
@@ -543,12 +548,11 @@ public class HomeController implements Initializable {
                 } catch (IOException ex) {
                     Logger.getLogger(SelfStatusPageController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                i--;
-                if(i==-1){
+                if(i==0){
                     loadmore.setVisible(false);
                 }
             } 
-            this.y=this.y+930;
+            this.y=this.y+1000;
             this.i=this.i+5;
             
         } catch (SQLException ex) {

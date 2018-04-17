@@ -155,6 +155,11 @@ public class Database {
         String insertQuery2 = String.format("INSERT INTO allpost(username,area,time,salary,subtext,ins,class,prefins,posttime,postdate) VALUES ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')",username,p.getArea(),p.getTime(),p.getSalary(),p.getSubtext(),p.getIns(),p.getStuclass(),p.getPrefins(),p.getPosttime(),p.getPostdate());
         stmt.executeUpdate(insertQuery);
         stmt2.executeUpdate(insertQuery2);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Post Successfull");
+        alert.setHeaderText("");
+        alert.setContentText("your post has been successfully posted");
+        alert.showAndWait();
         conn.close();
         conn2.close();
     }
@@ -205,7 +210,7 @@ public class Database {
                                 followinfo.add(p);
 			}
 		} catch (SQLException e) {
-			System.out.println("Exception in listProducts: " + e);
+			System.out.println(e);
 		} finally {
 			conn.close();
 		}
@@ -235,7 +240,6 @@ public class Database {
             do{
                 FollowInfo p = new FollowInfo();
                 p.setName(rs.getString("username"));
-                System.out.println(rs.getString("username"));
                 searchinfo.add(p);
             }while(rs.next());
         }
@@ -271,7 +275,6 @@ public class Database {
         while(rs.next()){
             FollowInfo p = new FollowInfo();
             p.setName(rs.getString("username"));
-            System.out.println(rs.getString("username"));
             followinfo.add(p);
         }
         conn.close();
