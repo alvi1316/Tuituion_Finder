@@ -122,6 +122,7 @@ public class Database {
     }
     public static void writePost(String username,PostInfo p) throws SQLException{
         Connection conn = DriverManager.getConnection("jdbc:sqlite:Users\\"+username+"\\"+username+".db");
+        Connection conn2 = DriverManager.getConnection("jdbc:sqlite:Users\\Usernames\\usernames.db");
         String sql = "CREATE TABLE IF NOT EXISTS post " + "(" 
                     + "area string,"
                     + "time string,"
@@ -133,16 +134,34 @@ public class Database {
                     + "posttime time,"
                     + "postdate date" 
                     + ");";
+         String sql2 = "CREATE TABLE IF NOT EXISTS allpost " + "("
+                    + "username string,"
+                    + "area string,"
+                    + "time string,"
+                    + "salary string,"
+                    + "subtext string,"
+                    + "ins string,"
+                    + "class string,"
+                    + "prefins string,"
+                    + "posttime time,"
+                    + "postdate date" 
+                    + ");";
+        
         Statement stmt = conn.createStatement();
+        Statement stmt2 = conn2.createStatement();
         stmt.execute(sql);
+        stmt2.execute(sql2);
         String insertQuery = String.format("INSERT INTO post(area,time,salary,subtext,ins,class,prefins,posttime,postdate) VALUES ('%s','%s','%s','%s','%s','%s','%s','%s','%s')",p.getArea(),p.getTime(),p.getSalary(),p.getSubtext(),p.getIns(),p.getStuclass(),p.getPrefins(),p.getPosttime(),p.getPostdate());
+        String insertQuery2 = String.format("INSERT INTO allpost(username,area,time,salary,subtext,ins,class,prefins,posttime,postdate) VALUES ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')",username,p.getArea(),p.getTime(),p.getSalary(),p.getSubtext(),p.getIns(),p.getStuclass(),p.getPrefins(),p.getPosttime(),p.getPostdate());
         stmt.executeUpdate(insertQuery);
+        stmt2.executeUpdate(insertQuery2);
         conn.close();
+        conn2.close();
     }
     
-    public static List<PostInfo> getPostInfo() throws SQLException {
+    public static List<PostInfo> getPostInfo(String username) throws SQLException {
 		List<PostInfo> postinfo = new ArrayList<>();
-		Connection conn = DriverManager.getConnection("jdbc:sqlite:Users\\"+TuitionFinder.username+"\\"+TuitionFinder.username+".db");
+		Connection conn = DriverManager.getConnection("jdbc:sqlite:Users\\"+username+"\\"+username+".db");
 		try {
 			String query = "select * from post order by postdate";
                         Statement stmt = conn.createStatement();
@@ -220,7 +239,6 @@ public class Database {
                 searchinfo.add(p);
             }while(rs.next());
         }
-        System.out.println(searchinfo.get(0).getName());
         return searchinfo;
         
     }
@@ -244,6 +262,56 @@ public class Database {
         return rs.getString("username").equals(follow);
         
     }
-    
+    public static List<FollowInfo> getFollow(String username) throws SQLException{
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:Users\\"+username+"\\"+username+".db");
+        String query = "SELECT * FROM following";
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(query);
+        List<FollowInfo> followinfo = new ArrayList<>();
+        while(rs.next()){
+            FollowInfo p = new FollowInfo();
+            p.setName(rs.getString("username"));
+            System.out.println(rs.getString("username"));
+            followinfo.add(p);
+        }
+        conn.close();
+        return followinfo;
+        
+    }
+    public static List<PostInfo> getFollowPost(String username) throws SQLException{
+        List<PostInfo> fp = new ArrayList<>();
+        List<FollowInfo> followinfo = Database.getFollow(username);
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:Users\\Usernames\\usernames.db");
+        String query = "SELECT * FROM allpost WHERE";
+        int i=0;
+        for (FollowInfo p : followinfo) {
+            if(i==0){
+                query = query + " username='"+p.getName()+"'";
+            }
+            else{
+                query = query + " OR username='"+p.getName()+"'";
+            }
+            i++;
+        }
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(query);
+        while (rs.next()) 
+        {
+            PostInfo p = new PostInfo();
+            p.setUsername(rs.getString("username"));
+            p.setArea(rs.getString("area"));
+            p.setTime(rs.getString("time"));
+            p.setSalary(rs.getString("salary"));
+            p.setSubtext(rs.getString("subtext"));
+            p.setIns(rs.getString("ins"));
+            p.setStuclass(rs.getString("class"));
+            p.setPrefins(rs.getString("prefins"));
+            p.setPosttime(rs.getString("posttime"));
+            p.setPostdate(rs.getString("postdate"));
+            fp.add(p);
+	}
+        conn.close();
+        return fp;
+    }
     
 }

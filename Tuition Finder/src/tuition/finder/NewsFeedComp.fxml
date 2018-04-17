@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="143.0" prefWidth="1525.0" style="-fx-background-color: #8c151e;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tuition.finder.NewsFeedCompController">
+   <children>
+      <Label fx:id="posttimetext" layoutX="1415.0" layoutY="110.0" text="posttimetext" textFill="WHITE" />
+      <Label layoutX="1276.0" layoutY="22.0" text="Prefered Institute :" textFill="WHITE" />
+      <Label layoutX="380.0" layoutY="22.0" text="Area :" textFill="WHITE" />
+      <Label fx:id="areatext" layoutX="441.0" layoutY="22.0" prefHeight="21.0" prefWidth="108.0" text="Area Text" textFill="WHITE" />
+      <Label layoutX="569.0" layoutY="22.0" text="Time :" textFill="WHITE" />
+      <Label fx:id="timetext" layoutX="628.0" layoutY="22.0" prefHeight="21.0" prefWidth="104.0" text="Time text" textFill="WHITE" />
+      <Label layoutX="783.0" layoutY="22.0" text="Salary :" textFill="WHITE" />
+      <Label fx:id="salarytext" layoutX="835.0" layoutY="22.0" prefHeight="21.0" prefWidth="109.0" text="Salary Text" textFill="WHITE" />
+      <Label layoutX="954.0" layoutY="22.0" text="Institute :" textFill="WHITE" />
+      <Label fx:id="institutetext" layoutX="1025.0" layoutY="10.0" prefHeight="47.0" prefWidth="236.0" text="Institute text" textFill="WHITE" wrapText="true" />
+      <Label layoutX="1003.0" layoutY="90.0" text="Class :" textFill="WHITE" />
+      <Label fx:id="classtext" layoutX="1056.0" layoutY="90.0" prefHeight="21.0" prefWidth="79.0" text="Class text" textFill="WHITE" />
+      <Label fx:id="prefinstext" layoutX="1403.0" layoutY="22.0" prefHeight="21.0" prefWidth="96.0" text="prefins Text" textFill="WHITE" />
+      <Label layoutX="88.0" layoutY="89.0" text="Subjects :" textFill="WHITE" />
+      <TextArea fx:id="subjectext" layoutX="166.0" layoutY="78.0" prefHeight="42.0" prefWidth="812.0" promptText="Subjects" />
+      <Label fx:id="postdatetext" layoutX="1315.0" layoutY="110.0" text="postdatetext" textFill="WHITE" />
+      <Text fill="WHITE" layoutX="44.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Posted By :" />
+      <Hyperlink fx:id="usernametext" layoutX="130.0" layoutY="19.0" onAction="#usernamePressed" prefHeight="29.0" prefWidth="236.0" text="UsernameText" textFill="WHITE" />
+   </children>
+</AnchorPane>

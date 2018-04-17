@@ -120,5 +120,10 @@ public class ViewUserInformationController implements Initializable {
             }
         }
     }
+
+    @FXML
+    private void viewPostPressed(ActionEvent event) throws IOException {
+        tuitionFinder.otherStatusScreen(userName.getText());
+    }
     
 }

@@ -177,6 +177,46 @@ public class HomeController implements Initializable {
         
        
     }
+     public void posts(String username){
+        try {
+            int y = 0;
+            int count=0;
+            List<PostInfo> postinfo = Database.getFollowPost(username);
+            for (int i=postinfo.size()-1;i>=0;i--) {
+                if(count==5){
+                    break;
+                }
+                FXMLLoader loader=new FXMLLoader();
+                loader.setLocation(getClass().getResource("NewsFeedComp.fxml"));
+                
+                try {
+                    temppane = loader.load();
+                    temppane.setLayoutX(0);
+                    temppane.setLayoutY(210+y);
+                    NewsFeedCompController con = loader.getController();
+                    con.setTuitionfinder(tuitionFinder);
+                    con.setUsernametext(postinfo.get(i).getUsername());
+                    con.setAreatext(postinfo.get(i).getArea());
+                    con.setClasstext(postinfo.get(i).getStuclass());
+                    con.setInstitutetext(postinfo.get(i).getIns());
+                    con.setPostdatetext(postinfo.get(i).getPostdate());
+                    con.setPosttimetext(postinfo.get(i).getPosttime());
+                    con.setPrefinstext(postinfo.get(i).getPrefins());
+                    con.setSalarytext(postinfo.get(i).getSalary());
+                    con.setSubjectext(postinfo.get(i).getSubtext());
+                    con.setTimetext(postinfo.get(i).getTime());
+                    scrollpane.getChildren().add(temppane);
+                    y=y+144;
+                    count++;
+                } catch (IOException ex) {
+                    Logger.getLogger(SelfStatusPageController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }  
+        } catch (SQLException ex) {
+            Logger.getLogger(SelfStatusPageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
     public void setFollow(){
         try {
             int y = 0;
@@ -464,9 +504,57 @@ public class HomeController implements Initializable {
     private void salary5Pressed(ActionEvent event) {
         salary.setText(salary5.getText());
     }
-
+    int y=930;
+    int i=6;
     @FXML
     private void loadmorePressed(ActionEvent event) {
+        try {
+            int y = 0;
+            int count=0;
+            
+            List<PostInfo> postinfo = Database.getFollowPost(TuitionFinder.username);
+            for (int i=postinfo.size()-this.i;i>=0;) {
+                if(count==5){
+                    break;
+                }
+                FXMLLoader loader=new FXMLLoader();
+                loader.setLocation(getClass().getResource("NewsFeedComp.fxml"));
+                
+                try {
+                    temppane = loader.load();
+                    temppane.setLayoutX(0);
+                    temppane.setLayoutY(this.y+y);
+                    NewsFeedCompController con = loader.getController();
+                    con.setTuitionfinder(tuitionFinder);
+                    con.setUsernametext(postinfo.get(i).getUsername());
+                    con.setAreatext(postinfo.get(i).getArea());
+                    con.setClasstext(postinfo.get(i).getStuclass());
+                    con.setInstitutetext(postinfo.get(i).getIns());
+                    con.setPostdatetext(postinfo.get(i).getPostdate());
+                    con.setPosttimetext(postinfo.get(i).getPosttime());
+                    con.setPrefinstext(postinfo.get(i).getPrefins());
+                    con.setSalarytext(postinfo.get(i).getSalary());
+                    con.setSubjectext(postinfo.get(i).getSubtext());
+                    con.setTimetext(postinfo.get(i).getTime());
+                    scrollpane.getChildren().add(temppane);
+                    y=y+144;
+                    count++;
+                    
+                } catch (IOException ex) {
+                    Logger.getLogger(SelfStatusPageController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                i--;
+                if(i==-1){
+                    loadmore.setVisible(false);
+                }
+            } 
+            this.y=this.y+930;
+            this.i=this.i+5;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(SelfStatusPageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         scrollpane.setMinHeight(scrollpane.getHeight()+1011);
         loadmore.setLayoutY(scrollpane.getMinHeight()-50);
     }

@@ -151,11 +151,33 @@ public class SelfStatusPageController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb){
-        setUsername();
+        
+
+            
+            
+            
+        FileInputStream input = null;
+        try {
+            input = new FileInputStream("Icons/favicon.jpg");
+            Image image = new Image(input);
+            search.setGraphic(new ImageView(image));
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                input.close();
+            } catch (IOException ex) {
+                Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        usernametext.setText(TuitionFinder.username);
+        
+    }
+    public void posts(String username){
         try {
             int y = 0;
             int count=0;
-            List<PostInfo> postinfo = Database.getPostInfo();
+            List<PostInfo> postinfo = Database.getPostInfo(username);
             for (int i=postinfo.size()-1;i>=0;i--) {
                 if(count==5){
                     break;
@@ -187,25 +209,6 @@ public class SelfStatusPageController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(SelfStatusPageController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-            
-            
-            
-        FileInputStream input = null;
-        try {
-            input = new FileInputStream("Icons/favicon.jpg");
-            Image image = new Image(input);
-            search.setGraphic(new ImageView(image));
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                input.close();
-            } catch (IOException ex) {
-                Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        usernametext.setText(TuitionFinder.username);
         
     }
 
@@ -515,9 +518,55 @@ public class SelfStatusPageController implements Initializable {
     private void salary5Pressed(ActionEvent event) {
         salary.setText(salary5.getText());
     }
+    int y=930;
+    int i=6;
 
     @FXML
     private void loadmorePressed(ActionEvent event) {
+        try {
+            int y = 0;
+            int count=0;
+            List<PostInfo> postinfo = Database.getPostInfo(TuitionFinder.username);
+            for (int i=postinfo.size()-1;i>=0;i--) {
+                if(count==5){
+                    break;
+                }
+                FXMLLoader loader=new FXMLLoader();
+                loader.setLocation(getClass().getResource("PostComp.fxml"));
+                
+                try {
+                    temppane = loader.load();
+                    temppane.setLayoutX(0);
+                    temppane.setLayoutY(this.y+y);
+                    PostCompController con = loader.getController();
+                    con.setAreatext(postinfo.get(i).getArea());
+                    con.setClasstext(postinfo.get(i).getStuclass());
+                    con.setInstitutetext(postinfo.get(i).getIns());
+                    con.setPostdatetext(postinfo.get(i).getPostdate());
+                    con.setPosttimetext(postinfo.get(i).getPosttime());
+                    con.setPrefinstext(postinfo.get(i).getPrefins());
+                    con.setSalarytext(postinfo.get(i).getSalary());
+                    con.setSubjectext(postinfo.get(i).getSubtext());
+                    con.setTimetext(postinfo.get(i).getTime());
+                    scrollpane.getChildren().add(temppane);
+                    y=y+144;
+                    count++;
+                    
+                } catch (IOException ex) {
+                    Logger.getLogger(SelfStatusPageController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                i--;
+                System.out.println(i);
+                if(i<=0){
+                    loadmore.setVisible(false);
+                }
+            } 
+            this.y=this.y+930;
+            this.i=this.i+5;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(SelfStatusPageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         scrollpane.setMinHeight(scrollpane.getHeight()+1011);
         loadmore.setLayoutY(scrollpane.getMinHeight()-50);
     }

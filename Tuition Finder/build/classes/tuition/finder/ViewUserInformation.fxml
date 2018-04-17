@@ -134,7 +134,12 @@
             <Font size="26.0" />
          </font>
       </Text>
-      <Button fx:id="followButton" layoutX="1258.0" layoutY="854.0" mnemonicParsing="false" onAction="#followPressed" prefHeight="50.0" prefWidth="157.0" text="Follow">
+      <Button fx:id="followButton" layoutX="1394.0" layoutY="855.0" mnemonicParsing="false" onAction="#followPressed" prefHeight="50.0" prefWidth="157.0" text="Follow">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Button>
+      <Button layoutX="1174.0" layoutY="855.0" mnemonicParsing="false" onAction="#viewPostPressed" prefHeight="50.0" prefWidth="149.0" text="View Posts">
          <font>
             <Font size="23.0" />
          </font>

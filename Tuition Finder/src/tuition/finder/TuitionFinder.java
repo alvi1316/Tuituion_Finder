@@ -15,8 +15,10 @@ public class TuitionFinder extends Application {
     static String search;
     @Override
     public void start(Stage primaryStage) throws IOException{
+        
         this.stage=primaryStage;
         logInStage();
+        
     }
 
     public void logInStage() throws IOException {
@@ -62,8 +64,9 @@ public class TuitionFinder extends Application {
         controller.setUsernametext();
         controller.setTutionFinder(this);
         controller.setFollow();
+        controller.posts(username);
         stage.setMaximized(true);
-        stage.setTitle("Home");
+        stage.setTitle("News Feed");
         stage.setScene(new Scene(root));
         stage.setX(0);
         stage.setY(0);
@@ -121,6 +124,7 @@ public class TuitionFinder extends Application {
         stage.show();
     }
     
+    
     public void editProfileScreen(String name) throws IOException {
         
         
@@ -149,8 +153,25 @@ public class TuitionFinder extends Application {
         AnchorPane root = loader.load();
         SelfStatusPageController controller = loader.getController();
         controller.setTuitionFinder(this);
+        controller.posts(TuitionFinder.username);
         controller.setFollow();
         stage.setTitle(username);
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.show();
+    }
+    
+    
+    public void otherStatusScreen(String name) throws IOException {
+        
+        FXMLLoader loader=new FXMLLoader();
+        loader.setLocation(getClass().getResource("SelfStatusPage.fxml"));
+        AnchorPane root = loader.load();
+        SelfStatusPageController controller = loader.getController();
+        controller.setTuitionFinder(this);
+        controller.posts(name);
+        controller.setFollow();
+        stage.setTitle(name);
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.show();

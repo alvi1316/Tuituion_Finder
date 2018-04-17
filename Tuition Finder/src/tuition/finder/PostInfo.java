@@ -4,6 +4,7 @@ package tuition.finder;
 
 public class PostInfo {
     
+    private String username;
     private String time;
     private String postdate;
     private String subtext;
@@ -13,6 +14,16 @@ public class PostInfo {
     private String prefins;
     private String posttime;
     private String stuclass;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    
+    
 
     public String getTime() {
         return time;
