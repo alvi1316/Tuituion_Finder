@@ -126,19 +126,15 @@ public class TuitionFinder extends Application {
     }
     
     
-    public void editProfileScreen(String name) throws IOException {
+    public void editProfileScreen(String name,ProInfo p) throws IOException {
         
         
         FXMLLoader loader=new FXMLLoader();
         loader.setLocation(getClass().getResource("EditProfileInformation.fxml"));
         AnchorPane root = loader.load();
-        
-        
-        
         EditProfileInformationController controller = loader.getController();
-        controller.setN(name);
         controller.setTuitionFinder(this);
-        
+        controller.setEverything(p);
         stage.setTitle("Edit Profile");
         stage.setScene(new Scene(root));
         stage.setResizable(false);

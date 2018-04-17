@@ -21,6 +21,19 @@ public class Database {
             file.mkdir();
         }
     }
+    public static void deleteTable(String username){
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:Users\\"+username+"\\"+username+".db");
+            String sql = "DELETE FROM profile";
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(sql);
+            conn.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
     public static void makeDb(String name,String password,String email,String username,int mobileNum,int parentNum,String age,String sex,String address,String institute,double cgpa,double ssccg,double hsccg,String description){    
         
         try {

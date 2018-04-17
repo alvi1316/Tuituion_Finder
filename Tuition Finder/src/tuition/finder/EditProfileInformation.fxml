@@ -21,42 +21,37 @@
             <Font size="26.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="282.0" layoutY="488.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-Mail :">
+      <Text fill="WHITE" layoutX="282.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-Mail :">
          <font>
             <Font size="26.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="282.0" layoutY="588.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Institute :">
+      <Text fill="WHITE" layoutX="282.0" layoutY="477.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Institute :">
          <font>
             <Font size="26.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="282.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number :" wrappingWidth="192.51303100585938">
+      <Text fill="WHITE" layoutX="282.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number :" wrappingWidth="192.51303100585938">
          <font>
             <Font size="26.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="282.0" layoutY="688.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age :">
+      <Text fill="WHITE" layoutX="282.0" layoutY="577.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age :">
          <font>
             <Font size="26.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="282.0" layoutY="788.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sex :">
+      <Text fill="WHITE" layoutX="282.0" layoutY="677.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sex :">
          <font>
             <Font size="26.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="282.0" layoutY="888.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current CGPA :">
+      <Text fill="WHITE" layoutX="282.0" layoutY="877.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current CGPA :">
          <font>
             <Font size="26.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="282.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name :">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Text>
-      <Text fill="WHITE" layoutX="282.0" layoutY="988.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSC GPA :">
+      <Text fill="WHITE" layoutX="1004.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSC GPA :">
          <font>
             <Font size="26.0" />
          </font>
@@ -66,41 +61,47 @@
             <Font size="26.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="1004.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" underline="true">
+      <Text fill="WHITE" layoutX="1004.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" underline="true">
          <font>
             <Font size="26.0" />
          </font>
       </Text>
-      <TextArea fx:id="userDescription" editable="false" layoutX="1004.0" layoutY="320.0" prefHeight="464.0" prefWidth="676.0" wrapText="true" />
+      <TextArea fx:id="userDescription" layoutX="1004.0" layoutY="403.0" prefHeight="381.0" prefWidth="676.0" wrapText="true" />
       <Button fx:id="cancelButton" layoutX="1277.0" layoutY="830.0" mnemonicParsing="false" onAction="#homePressed" prefHeight="50.0" prefWidth="100.0" text="Cancel">
          <font>
             <Font size="23.0" />
          </font>
       </Button>
-      <Button fx:id="saveButton" layoutX="1589.0" layoutY="830.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Save">
+      <Button fx:id="saveButton" layoutX="1589.0" layoutY="830.0" mnemonicParsing="false" onAction="#savePressed" prefHeight="50.0" prefWidth="100.0" text="Save">
          <font>
             <Font size="23.0" />
          </font>
       </Button>
       <TextField fx:id="name" layoutX="555.0" layoutY="156.0" prefHeight="38.0" prefWidth="291.0" />
-      <TextField fx:id="userName" layoutX="555.0" layoutY="265.0" prefHeight="38.0" prefWidth="291.0" />
-      <TextField fx:id="userPhone" layoutX="555.0" layoutY="365.0" prefHeight="38.0" prefWidth="291.0" />
-      <TextField fx:id="userEmail" layoutX="555.0" layoutY="465.0" prefHeight="38.0" prefWidth="291.0" />
-      <TextField fx:id="userInstitute" layoutX="555.0" layoutY="565.0" prefHeight="38.0" prefWidth="291.0" />
-      <TextField fx:id="userCGPA" layoutX="555.0" layoutY="865.0" prefHeight="38.0" prefWidth="291.0" />
-      <TextField fx:id="userSscCg" layoutX="555.0" layoutY="965.0" prefHeight="38.0" prefWidth="291.0" />
+      <TextField fx:id="userPhone" layoutX="555.0" layoutY="254.0" prefHeight="38.0" prefWidth="291.0" />
+      <TextField fx:id="userEmail" layoutX="555.0" layoutY="354.0" prefHeight="38.0" prefWidth="291.0" />
+      <TextField fx:id="userInstitute" layoutX="555.0" layoutY="454.0" prefHeight="38.0" prefWidth="291.0" />
+      <TextField fx:id="userCGPA" layoutX="555.0" layoutY="849.0" prefHeight="38.0" prefWidth="291.0" />
+      <TextField fx:id="userSscCg" layoutX="1250.0" layoutY="265.0" prefHeight="38.0" prefWidth="291.0" />
       <TextField fx:id="userHscCg" layoutX="1250.0" layoutY="160.0" prefHeight="38.0" prefWidth="291.0" />
-      <MenuButton fx:id="userAge" layoutX="555.0" layoutY="656.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="123.0" text="Age">
+      <MenuButton fx:id="userAge" layoutX="555.0" layoutY="545.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="123.0" text="Age">
         <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
+          <MenuItem mnemonicParsing="false" onAction="#ageOne" text="18-22" />
+          <MenuItem mnemonicParsing="false" onAction="#ageTwo" text="23-27" />
+            <MenuItem mnemonicParsing="false" onAction="#ageThree" text="28-35" />
         </items>
       </MenuButton>
-      <MenuButton fx:id="userSex" layoutX="555.0" layoutY="765.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="123.0" text="Sex">
+      <MenuButton fx:id="userSex" layoutX="555.0" layoutY="654.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="123.0" text="Sex">
          <items>
-            <MenuItem mnemonicParsing="false" text="Action 1" />
-            <MenuItem mnemonicParsing="false" text="Action 2" />
+            <MenuItem mnemonicParsing="false" onAction="#malePressed" text="Male" />
+            <MenuItem mnemonicParsing="false" onAction="#femailPressed" text="Female" />
          </items>
       </MenuButton>
+      <Text fill="WHITE" layoutX="282.0" layoutY="777.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address :">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <TextField fx:id="addresstext" layoutX="555.0" layoutY="749.0" prefHeight="38.0" prefWidth="291.0" />
    </children>
 </AnchorPane>

@@ -69,12 +69,12 @@ public class ProfileInformationController implements Initializable {
     }
 
     public void setName(String name) {
-        this.name.setText(name);
+        this.userName.setText(name);
         
     }
     public void setEverything(){
         try {
-            ProInfo p = Database.getProfile(name.getText());
+            ProInfo p = Database.getProfile(userName.getText());
             name.setText(p.getName());
             userEmail.setText(p.getUserEmail());       
             userInstitute.setText(p.getUserInstitute());
@@ -99,7 +99,14 @@ public class ProfileInformationController implements Initializable {
 
     @FXML
     private void editButtonPressed(ActionEvent event) throws IOException {
-        tuitionFinder.editProfileScreen(name.getText());
+        try {
+            ProInfo p = Database.getProfile(userName.getText());
+            tuitionFinder.editProfileScreen(userName.getText(),p);
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        
+        
     }
     
 }
