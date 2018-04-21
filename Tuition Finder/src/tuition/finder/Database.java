@@ -201,12 +201,13 @@ public class Database {
 		} catch (SQLException e) {
 			Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("No Posts");
-                        alert.setHeaderText("You Haven't Even Posted Anything Yet");
-                        alert.setContentText("Post your status and come back again");
+                        alert.setHeaderText("");
+                        alert.setContentText("User Haven't Even Posted Anything Yet!");
                         alert.showAndWait();
 		} finally {
 			conn.close();
 		}
+                
 		return postinfo;
 	}
     public static List<FollowInfo> getFollowInfo() throws SQLException {
@@ -374,5 +375,23 @@ public class Database {
         return fp;
     }
     
-    
+    public static void deletePost(String username,String date,String time){
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:Users\\Usernames\\usernames.db");
+            Connection conn2 = DriverManager.getConnection("jdbc:sqlite:Users\\"+username+"\\"+username+".db");
+            String del = "DELETE FROM allpost WHERE username = '"+username+"' AND postdate = '"+date+"' AND posttime = '"+time+"'";
+            String del2 = "DELETE FROM post WHERE postdate = '"+date+"' AND posttime = '"+time+"'";
+            Statement stmt = conn.createStatement();
+            Statement stmt2 = conn2.createStatement();
+            stmt.executeUpdate(del);
+            stmt2.executeUpdate(del2);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Post Delete Successfull");
+            alert.setHeaderText("");
+            alert.setContentText("The post has been successfully deleted!");
+            alert.showAndWait();
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

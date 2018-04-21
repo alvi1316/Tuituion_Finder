@@ -114,6 +114,7 @@
                   <MenuItem fx:id="area4" mnemonicParsing="false" onAction="#area4Pressed" text="Gulshan" />
                   <MenuItem fx:id="area5" mnemonicParsing="false" onAction="#area5Pressed" text="Mirpur" />
                   <MenuItem fx:id="area6" mnemonicParsing="false" onAction="#area6Pressed" text="Basabo" />
+                  <MenuItem fx:id="area7" mnemonicParsing="false" onAction="#area7Pressed" text="Motijhil" />
                </items>
             </MenuButton>
             <MenuButton fx:id="time" layoutX="451.0" layoutY="12.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="135.0" text="Time">
@@ -148,6 +149,10 @@
                <items>
                   <MenuItem fx:id="ins1" mnemonicParsing="false" onAction="#ins1Pressed" text="Uttara Rajuk School and College" />
                   <MenuItem fx:id="ins2" mnemonicParsing="false" onAction="#ins2Pressed" text="Uttara High School and College" />
+                  <MenuItem fx:id="ins3" mnemonicParsing="false" onAction="#ins3Pressed" text="Viqarunnisa Noon School" />
+                  <MenuItem fx:id="ins4" mnemonicParsing="false" onAction="#ins4Pressed" text="Government Laboratory School" />
+                  <MenuItem fx:id="ins5" mnemonicParsing="false" onAction="#ins5Pressed" text="Motijhil Ideal School" />
+                  <MenuItem fx:id="ins6" mnemonicParsing="false" onAction="#ins6Pressed" text="Turkish Hope School" />
                </items>
             </MenuButton>
             <TextArea fx:id="subtext" editable="false" layoutX="362.0" layoutY="60.0" prefHeight="47.0" prefWidth="772.0" promptText="Selected Subjects" wrapText="true" />

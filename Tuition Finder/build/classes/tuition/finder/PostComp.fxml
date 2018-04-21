@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="143.0" prefWidth="1525.0" style="-fx-background-color: #8c151e;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tuition.finder.PostCompController">
    <children>
-      <Label fx:id="posttimetext" layoutX="1415.0" layoutY="110.0" text="posttimetext" textFill="WHITE" />
+      <Label fx:id="posttimetext" layoutX="1315.0" layoutY="115.0" text="posttimetext" textFill="WHITE" />
       <Label layoutX="1215.0" layoutY="21.0" text="Prefered Institute :" textFill="WHITE" />
       <Label layoutX="88.0" layoutY="20.0" text="Area :" textFill="WHITE" />
       <Label fx:id="areatext" layoutX="136.0" layoutY="20.0" prefHeight="21.0" prefWidth="108.0" text="Area Text" textFill="WHITE" />
@@ -21,6 +24,14 @@
       <Label fx:id="prefinstext" layoutX="1342.0" layoutY="21.0" prefHeight="21.0" prefWidth="96.0" text="prefins Text" textFill="WHITE" />
       <Label layoutX="88.0" layoutY="89.0" text="Subjects :" textFill="WHITE" />
       <TextArea fx:id="subjectext" layoutX="166.0" layoutY="78.0" prefHeight="42.0" prefWidth="812.0" promptText="Subjects" />
-      <Label fx:id="postdatetext" layoutX="1315.0" layoutY="110.0" text="postdatetext" textFill="WHITE" />
+      <Label fx:id="postdatetext" layoutX="1215.0" layoutY="115.0" text="postdatetext" textFill="WHITE" />
+      <MenuButton fx:id="postmenu" layoutX="1428.0" layoutY="105.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="72.0" text="Menu">
+        <items>
+          <MenuItem mnemonicParsing="false" onAction="#deletePressed" text="Delete" />
+        </items>
+         <font>
+            <Font size="13.0" />
+         </font>
+      </MenuButton>
    </children>
 </AnchorPane>

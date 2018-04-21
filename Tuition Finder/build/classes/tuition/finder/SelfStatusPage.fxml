@@ -104,6 +104,7 @@
                               <MenuItem fx:id="area4" mnemonicParsing="false" onAction="#area4Pressed" text="Gulshan" />
                               <MenuItem fx:id="area5" mnemonicParsing="false" onAction="#area5Pressed" text="Mirpur" />
                               <MenuItem fx:id="area6" mnemonicParsing="false" onAction="#area6Pressed" text="Basabo" />
+                              <MenuItem fx:id="area7" mnemonicParsing="false" onAction="#area7Pressed" text="Motijhil" />
                           </items>
                         </MenuButton>
                         <MenuButton fx:id="time" layoutX="571.0" layoutY="34.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="135.0" text="Time">
@@ -138,12 +139,20 @@
                           <items>
                             <MenuItem fx:id="ins1" mnemonicParsing="false" onAction="#ins1Pressed" text="Uttara Rajuk School and College" />
                             <MenuItem fx:id="ins2" mnemonicParsing="false" onAction="#ins2Pressed" text="Uttara High School and College" />
+                              <MenuItem fx:id="ins3" mnemonicParsing="false" onAction="#ins3Pressed" text="Viqarunnisa Noon School" />
+                              <MenuItem fx:id="ins4" mnemonicParsing="false" onAction="#ins4Pressed" text="Government Laboratory School" />
+                              <MenuItem fx:id="ins5" mnemonicParsing="false" onAction="#ins5Pressed" text="Motijhil Ideal School" />
+                              <MenuItem fx:id="ins6" mnemonicParsing="false" onAction="#ins6Pressed" text="Turkish Hope School" />
                           </items>
                         </MenuButton>
                         <MenuButton fx:id="prefins" layoutX="801.0" layoutY="114.0" mnemonicParsing="false" text="Prefered Institute">
                           <items>
                             <MenuItem fx:id="prefins1" mnemonicParsing="false" onAction="#prefins1Pressed" text="NSU" />
-                            <MenuItem fx:id="prefins2" mnemonicParsing="false" onAction="#prefins2Pressed" text="Buet" />
+                            <MenuItem fx:id="prefins2" mnemonicParsing="false" onAction="#prefins2Pressed" text="BUET" />
+                              <MenuItem fx:id="prefins3" mnemonicParsing="false" onAction="#prefins3Pressed" text="DU" />
+                              <MenuItem fx:id="prefins4" mnemonicParsing="false" onAction="#prefins4Pressed" text="IUB" />
+                              <MenuItem fx:id="prefins5" mnemonicParsing="false" onAction="#prefins5Pressed" text="AIUB" />
+                              <MenuItem fx:id="prefins6" mnemonicParsing="false" onAction="#prefins6Pressed" text="BRAC" />
                           </items>
                         </MenuButton>
                         <TextArea fx:id="subtext" editable="false" layoutX="1121.0" layoutY="35.0" prefHeight="143.0" prefWidth="138.0" promptText="Selected Subjects" wrapText="true" />

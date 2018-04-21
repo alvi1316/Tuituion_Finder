@@ -17,6 +17,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.Hyperlink;
@@ -136,6 +137,24 @@ public class SelfStatusPageController implements Initializable {
     private TextField searchtext;
     @FXML
     private AnchorPane followScrollPane;
+     @FXML
+    private MenuItem ins3;
+    @FXML
+    private MenuItem ins4;
+    @FXML
+    private MenuItem area7;
+    @FXML
+    private MenuItem ins5;
+    @FXML
+    private MenuItem ins6;
+    @FXML
+    private MenuItem prefins3;
+    @FXML
+    private MenuItem prefins4;
+    @FXML
+    private MenuItem prefins5;
+    @FXML
+    private MenuItem prefins6;
     
 
 
@@ -178,6 +197,14 @@ public class SelfStatusPageController implements Initializable {
             int y = 0;
             int count=0;
             List<PostInfo> postinfo = Database.getPostInfo(username);
+            if(postinfo.isEmpty()){
+                loadmore.setVisible(false);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("No Posts");
+                alert.setHeaderText("");
+                alert.setContentText("User haven't even posted yet!");
+                alert.showAndWait();
+            }
             for (int i=postinfo.size()-1;i>=0;i--) {
                 if(count==5){
                     break;
@@ -190,6 +217,7 @@ public class SelfStatusPageController implements Initializable {
                     temppane.setLayoutX(0);
                     temppane.setLayoutY(210+y);
                     PostCompController con = loader.getController();
+                    con.setTuitionfinder(tuitionFinder);
                     con.setAreatext(postinfo.get(i).getArea());
                     con.setClasstext(postinfo.get(i).getStuclass());
                     con.setInstitutetext(postinfo.get(i).getIns());
@@ -199,6 +227,7 @@ public class SelfStatusPageController implements Initializable {
                     con.setSalarytext(postinfo.get(i).getSalary());
                     con.setSubjectext(postinfo.get(i).getSubtext());
                     con.setTimetext(postinfo.get(i).getTime());
+                    con.setUsername(username);
                     scrollpane.getChildren().add(temppane);
                     y=y+144;
                     count++;
@@ -596,6 +625,50 @@ public class SelfStatusPageController implements Initializable {
         tuitionFinder.profileScreen(TuitionFinder.username);
     }
 
-    
+    @FXML
+    private void ins3Pressed(ActionEvent event) {
+        ins.setText(ins3.getText());
+    }
+
+    @FXML
+    private void ins4Pressed(ActionEvent event) {
+        ins.setText(ins4.getText());
+    }
+
+    @FXML
+    private void area7Pressed(ActionEvent event) {
+        area.setText(area7.getText());
+    }
+
+    @FXML
+    private void ins5Pressed(ActionEvent event) {
+        ins.setText(ins5.getText());
+    }
+
+    @FXML
+    private void ins6Pressed(ActionEvent event) {
+        ins.setText(ins6.getText());
+    }
+
+    @FXML
+    private void prefins3Pressed(ActionEvent event) {
+        prefins.setText(prefins3.getText());
+    }
+
+    @FXML
+    private void prefins4Pressed(ActionEvent event) {
+        prefins.setText(prefins4.getText());
+    }
+
+    @FXML
+    private void prefins5Pressed(ActionEvent event) {
+        prefins.setText(prefins5.getText());
+    }
+
+    @FXML
+    private void prefins6Pressed(ActionEvent event) {
+        prefins.setText(prefins6.getText());
+    }
+
     
 }

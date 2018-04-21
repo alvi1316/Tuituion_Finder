@@ -1,4 +1,3 @@
-
 package tuition.finder;
 
 import java.io.FileInputStream;
@@ -133,6 +132,24 @@ public class HomeController implements Initializable {
     @FXML
     private AnchorPane followScrollPane;
     private AnchorPane temppane;
+    @FXML
+    private MenuItem ins3;
+    @FXML
+    private MenuItem ins4;
+    @FXML
+    private MenuItem area7;
+    @FXML
+    private MenuItem ins5;
+    @FXML
+    private MenuItem ins6;
+    @FXML
+    private MenuItem prefins3;
+    @FXML
+    private MenuItem prefins4;
+    @FXML
+    private MenuItem prefins5;
+    @FXML
+    private MenuItem prefins6;
 
     
     
@@ -580,6 +597,51 @@ public class HomeController implements Initializable {
     @FXML
     private void settingsPressed(ActionEvent event) throws IOException {
         tuitionFinder.profileScreen(TuitionFinder.username);
+    }
+
+    @FXML
+    private void ins3Pressed(ActionEvent event) {
+        ins.setText(ins3.getText());
+    }
+
+    @FXML
+    private void ins4Pressed(ActionEvent event) {
+        ins.setText(ins4.getText());
+    }
+
+    @FXML
+    private void area7Pressed(ActionEvent event) {
+        area.setText(area7.getText());
+    }
+
+    @FXML
+    private void ins5Pressed(ActionEvent event) {
+        ins.setText(ins5.getText());
+    }
+
+    @FXML
+    private void ins6Pressed(ActionEvent event) {
+        ins.setText(ins6.getText());
+    }
+
+    @FXML
+    private void prefins3Pressed(ActionEvent event) {
+        prefins.setText(prefins3.getText());
+    }
+
+    @FXML
+    private void prefins4Pressed(ActionEvent event) {
+        prefins.setText(prefins4.getText());
+    }
+
+    @FXML
+    private void prefins5Pressed(ActionEvent event) {
+        prefins.setText(prefins5.getText());
+    }
+
+    @FXML
+    private void prefins6Pressed(ActionEvent event) {
+        prefins.setText(prefins6.getText());
     }
 
     

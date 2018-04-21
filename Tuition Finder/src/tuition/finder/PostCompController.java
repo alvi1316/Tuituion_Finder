@@ -1,11 +1,17 @@
 
 package tuition.finder;
 
+import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextArea;
 
 
@@ -29,6 +35,20 @@ public class PostCompController implements Initializable {
     private Label posttimetext;
     @FXML
     private Label postdatetext;
+    @FXML
+    private MenuButton postmenu;
+    String username;
+    
+    TuitionFinder tuitionfinder;
+
+    public void setTuitionfinder(TuitionFinder tuitionfinder) {
+        this.tuitionfinder = tuitionfinder;
+    }
+    
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    
     
 
     public void setAreatext(String areatext){
@@ -71,5 +91,13 @@ public class PostCompController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {            
     }    
+
+    @FXML
+    private void deletePressed(ActionEvent event) throws IOException {
+        
+        Database.deletePost(username, postdatetext.getText(), posttimetext.getText());
+        tuitionfinder.selfStatusScreen();
+        
+    }
     
 }
